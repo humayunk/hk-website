@@ -1,0 +1,14 @@
+[
+  {
+    "title": "NFL All Day",
+    "description": "Building and scaling NFL All Day to handle $75M+ in sales volume for 80K+ NFT holders on Flow",
+    "image": "/images/fingo-home.png",
+    "tags": ["Web3", "Consumer", "Marketplace"]
+  },
+  {
+    "title": "Readwise",
+    "description": "Designing the first of a kind read-it-later app to streamline all reading in one place",
+    "image": "images/querycat-home.png",
+    "tags": ["Consumer", "SAAS"]
+  }
+]

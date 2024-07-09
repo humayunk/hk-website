@@ -31,3 +31,13 @@ body {
     text-wrap: balance;
   }
 }
+
+#image-reveal {
+  mix-blend-mode: normal;
+  pointer-events: none;
+  background: none;
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
