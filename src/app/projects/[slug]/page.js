@@ -1,5 +1,12 @@
 import { notFound } from 'next/navigation';
 import { fetchEntries } from '../../lib/contentful'; // Ensure the path to contentful.js is correct
+import CaseStudyHeroSection from '@/app/components/CaseStudyHeroSection';
+import CaseStudyAboutSection from '@/app/components/CaseStudyAboutSection';
+import Testamonial from '@/app/components/Testamonial';
+import CaseStudyHeader from '@/app/components/CaseStudyHeader';
+import Cta from '@/app/components/Cta';
+import Footer from '@/app/components/Footer';
+import Header from '@/app/components/Header';
 
 export async function generateStaticParams() {
   const entries = await fetchEntries('project');
@@ -33,17 +40,17 @@ export default async function ProjectPage({ params }) {
   const { title, description, image, tags } = project.fields;
 
   return (
-    <div className="container mx-auto py-16">
-      <h1 className="text-4xl font-bold mb-4">{title}</h1>
-      <p className="text-lg mb-8">{description}</p>
-      {image && <img src={image.fields.file.url} alt={title} className="w-full h-auto mb-8" />}
-      <div className="flex space-x-2">
-        {tags.map(tag => (
-          <span key={tag} className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full">
-            {tag}
-          </span>
-        ))}
-      </div>
+    <div>
+      <Header />
+      <CaseStudyHeroSection
+        title={title}
+        description={description}
+        image={image.fields.file.url}
+        tags={tags} />
+      <CaseStudyAboutSection />
+      <Testamonial />
+      <Cta />
+      <Footer />
     </div>
   );
 }
