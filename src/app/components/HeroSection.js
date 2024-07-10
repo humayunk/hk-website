@@ -1,41 +1,46 @@
-import { useState, useEffect } from 'react'
-import Header from './Header'
+import { useState, useEffect } from 'react';
+import Header from './Header';
+import ContactModal from './ContactModal';
 
 export default function HeroSection() {
-  const [mousePosition, setMousePosition] = useState({ x: -1, y: -1 })
-  const [isDesktop, setIsDesktop] = useState(false)
+  const [mousePosition, setMousePosition] = useState({ x: -1, y: -1 });
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const handleMouseMove = (event) => {
     if (isDesktop) {
-      const rect = event.currentTarget.getBoundingClientRect()
+      const rect = event.currentTarget.getBoundingClientRect();
       setMousePosition({
         x: event.clientX - rect.left,
         y: event.clientY - rect.top,
-      })
+      });
     }
-  }
+  };
 
   const handleMouseLeave = () => {
     if (isDesktop) {
-      setMousePosition({ x: -1, y: -1 })
+      setMousePosition({ x: -1, y: -1 });
     }
-  }
+  };
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 1024)
-    }
+      setIsDesktop(window.innerWidth >= 1024);
+    };
 
-    handleResize() // Set initial value
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
-    const revealElement = document.getElementById('image-reveal')
+    const revealElement = document.getElementById('image-reveal');
     if (revealElement && isDesktop) {
       if (mousePosition.x === -1 && mousePosition.y === -1) {
-        revealElement.style.background = 'none'
+        revealElement.style.background = 'none';
       } else {
         revealElement.style.background = `
           radial-gradient(
@@ -45,13 +50,12 @@ export default function HeroSection() {
             rgba(0, 0, 0, 0.5) 100%
           ),
           url('/images/hero-image.jpeg')
-        `
-        revealElement.style.backgroundSize = 'cover'
-        revealElement.style.backgroundPosition = 'center'
+        `;
+        revealElement.style.backgroundSize = 'cover';
+        revealElement.style.backgroundPosition = 'center';
       }
     }
-  }, [mousePosition, isDesktop])
-
+  }, [mousePosition, isDesktop]);
 
   return (
     <div className="bg-white overflow-hidden">
@@ -86,15 +90,12 @@ export default function HeroSection() {
                   I'm a Swiss-Army knife for SaaS businesses. I can help you design, develop and ship your next critical feature.
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
-                  <a
-                    href="#"
-                    className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >
-                    Get started
-                  </a>
-                  <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                    Learn more <span aria-hidden="true">→</span>
-                  </a>
+                  <div>
+                    <button onClick={openModal} className="bg-indigo-600 px-4 py-2 text-white rounded">
+                      Get in touch
+                    </button>
+                    <ContactModal isOpen={isModalOpen} closeModal={closeModal} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -114,5 +115,5 @@ export default function HeroSection() {
         </div>
       </div>
     </div>
-  )
+  );
 }
