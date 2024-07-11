@@ -3,6 +3,7 @@
 import { useState, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link';
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -33,14 +34,14 @@ export default function Header() {
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon aria-hidden="true" className="h-6 w-6" />
               </button>
-              <a href="#" className="-m-1.5 p-1.5">
+              <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
                 <img
                   alt="Your Company"
                   src="../images/hk.png"
                   className="h-6 w-12"
                 />
-              </a>
+              </Link>
             </div>
           </nav>
         </div>
