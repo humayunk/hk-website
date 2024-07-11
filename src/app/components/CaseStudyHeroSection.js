@@ -4,7 +4,7 @@ export default function CaseStudyHeroSection({ title, description, image, tags }
   return (
     <div className="bg-white">
       <div className="relative isolate pt-14">
-        <div
+        {/* <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         >
@@ -15,11 +15,11 @@ export default function CaseStudyHeroSection({ title, description, image, tags }
             }}
             className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
           />
-        </div>
+        </div> */}
         <div className="py-24 sm:py-32 lg:pb-40">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl font-mono">
                 {title}
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -27,7 +27,7 @@ export default function CaseStudyHeroSection({ title, description, image, tags }
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 {tags.map(tag => (
-                  <span key={tag} className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full">
+                  <span key={tag} className="bg-black text-white px-3 py-1">
                     {tag}
                   </span>
                 ))}

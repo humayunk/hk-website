@@ -34,8 +34,8 @@ const Carousel = ({ slug }) => {
   };
 
   return (
-    <div className="relative w-full bg-slate-700" data-carousel="static">
-      <div className="relative h-96 md:h-[40rem] overflow-hidden rounded-lg">
+    <div className="relative w-full bg-black" data-carousel="static">
+      <div className="relative h-96 md:h-[40rem] overflow-hidden">
         {images.map((src, index) => (
           <div
             key={index}
@@ -57,7 +57,7 @@ const Carousel = ({ slug }) => {
             key={index}
             type="button"
             className={`w-3 h-3 rounded-full ${
-              currentIndex === index ? 'bg-blue-600' : 'bg-white'
+              currentIndex === index ? 'bg-indigo-900' : 'bg-white'
             }`}
             aria-current={currentIndex === index}
             aria-label={`Slide ${index + 1}`}

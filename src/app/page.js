@@ -25,8 +25,8 @@ export default function Home() {
     <>
       <HeroSection />
       <LogoClouds />
-      <FeatureSection />
       <WorkSection projects={projects} />
+      <FeatureSection />
       <Cta />
       <Footer />
     </>
