@@ -1,29 +1,29 @@
-import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
+import { CursorArrowRaysIcon, BoltIcon, FunnelIcon, CubeIcon } from '@heroicons/react/24/outline'
 
 const features = [
   {
     name: 'Idea Validation',
     description:
       'Prototype and validate your idea with real users. Get feedback on your product and make data-driven decisions.',
-    icon: CloudArrowUpIcon,
+    icon: BoltIcon,
   },
   {
     name: 'Product Design',
     description:
       'Design a beautiful and intuitive product that users love. Create a seamless user experience that drives growth.',
-    icon: LockClosedIcon,
+    icon: CubeIcon,
   },
   {
     name: 'Front-End Development',
     description:
       'Build a fast and responsive web application that works on all devices. Optimize your site for search engines and performance.',
-    icon: ArrowPathIcon,
+    icon: CursorArrowRaysIcon,
   },
   {
     name: 'Landing Pages',
     description:
       'Create high-converting landing pages that drive signups and sales. Optimize your site for search engines and performance.',
-    icon: FingerPrintIcon,
+    icon: FunnelIcon,
   },
 ]
 

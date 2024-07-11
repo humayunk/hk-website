@@ -1,16 +1,17 @@
 'use client'
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { ChatBubbleOvalLeftEllipsisIcon, HeartIcon, PencilSquareIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { Square3Stack3DIcon, HeartIcon, UserIcon, MapIcon } from '@heroicons/react/24/outline';
 import { fetchProjectData } from '../lib/contentful'; // Update the path as necessary
 
 const features = [
-  { name: 'Overview', icon: TrashIcon },
-  { name: 'Role', icon: PencilSquareIcon },
-  { name: 'Tools', icon: ChatBubbleOvalLeftEllipsisIcon },
+  { name: 'Overview', icon: MapIcon },
+  { name: 'Role', icon: UserIcon },
+  { name: 'Tools', icon: Square3Stack3DIcon },
   { name: 'Results', icon: HeartIcon },
 ];
 
-export default function Example({ title, slug }) {
+export default function CaseStudyAboutSection({ title, slug, url }) {
   const [projectData, setProjectData] = useState(null);
 
   useEffect(() => {
@@ -37,18 +38,18 @@ export default function Example({ title, slug }) {
             {features.map((feature) => (
               <div key={feature.name}>
                 <dt className="text-base font-semibold leading-7 text-gray-900 font-mono">
-                  <div className="mb-6 flex h-10 w-10 items-center justify-center  bg-black">
+                  <div className="mb-6 flex h-10 w-10 items-center justify-center bg-black">
                     <feature.icon aria-hidden="true" className="h-6 w-6 text-white" />
                   </div>
                   {feature.name}
                 </dt>
-               <dd className="mt-1 text-base leading-7 text-gray-600">
-                 {feature.name === 'Tools'
-                   ? projectData.tools.map((tool, index) => (
-                       <div key={index}>{tool}</div>
-                     ))
-                   : projectData[feature.name.toLowerCase()]}
-               </dd>
+                <dd className="mt-1 text-base leading-7 text-gray-600">
+                  {feature.name === 'Tools'
+                    ? projectData.tools.map((tool, index) => (
+                        <div key={index}>{tool}</div>
+                      ))
+                    : projectData[feature.name.toLowerCase()]}
+                </dd>
               </div>
             ))}
           </dl>

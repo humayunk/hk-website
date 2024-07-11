@@ -57,7 +57,7 @@ const Carousel = ({ slug }) => {
             key={index}
             type="button"
             className={`w-3 h-3 rounded-full ${
-              currentIndex === index ? 'bg-indigo-900' : 'bg-white'
+              currentIndex === index ? 'bg-gray-600' : 'bg-white'
             }`}
             aria-current={currentIndex === index}
             aria-label={`Slide ${index + 1}`}

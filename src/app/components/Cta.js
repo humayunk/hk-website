@@ -9,7 +9,7 @@ export default function Example() {
             Have a project? Let's talk.
           </h2>
           <p className="mx-auto my-6 max-w-xl text-lg leading-8 text-gray-600">
-            I'm currently available for full-time and contract work. Slide in my inbox. I'll get back to you within 24 hours.
+            I'm currently available for full-time and contract work. Say hello and I'll get back to you within 24 hours.
           </p>
           <Button />
         </div>

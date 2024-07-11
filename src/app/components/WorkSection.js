@@ -38,6 +38,7 @@ export default function WorkSection() {
               title={project.title}
               description={project.description}
               image={project.image ? project.image.fields.file.url : ''}
+              video={project.video ? project.video.fields.file.url : null}
               tags={project.tags || []}
               slug={project.slug}
             />
