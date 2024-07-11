@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 import Header from './Header';
 import ContactModal from './ContactModal';
+import gsap from 'gsap';
+import TextPlugin from 'gsap/TextPlugin';
+import Button from './Button';
+
+gsap.registerPlugin(TextPlugin);
 
 export default function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: -1, y: -1 });
@@ -57,12 +62,22 @@ export default function HeroSection() {
     }
   }, [mousePosition, isDesktop]);
 
+  useEffect(() => {
+    const header = document.querySelector('.gsap-header');
+    if (header) {
+      gsap.fromTo(header,
+        { text: "" },
+        { duration: 2, text: `Dream <br/> Build <br/> Ship` }
+      );
+    }
+  }, []);
+
   return (
     <div className="bg-white overflow-hidden">
       <Header />
       <div className="relative">
         <div className="mx-auto max-w-7xl">
-          <div className="relative z-10 pt-14 lg:w-full lg:max-w-2xl">
+          <div className="relative z-10 pt-8 lg:w-full lg:max-w-2xl">
             <svg
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
@@ -83,19 +98,14 @@ export default function HeroSection() {
                     </a>
                   </div> */}
                 </div>
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                  Hi! I'm Humayun.
+                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-7xl font-mono gsap-header">
+                  {/* The text will be animated here */}
                 </h1>
-                <p className="mt-6 text-lg leading-8 text-gray-600">
+                <p className="mt-6 text-lg leading-8 text-gray-600 font-sans">
                   I'm a Design Engineer who can help you conceptualize and ship your next critical product or growth project end-to-end.
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
-                  <div>
-                    <button onClick={openModal} className="bg-indigo-600 px-4 py-2 text-white rounded">
-                      Get in touch
-                    </button>
-                    <ContactModal isOpen={isModalOpen} closeModal={closeModal} />
-                  </div>
+                  <Button />
                 </div>
               </div>
             </div>

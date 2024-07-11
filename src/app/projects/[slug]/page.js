@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 import { fetchEntries } from '../../lib/contentful'; // Ensure the path to contentful.js is correct
 import CaseStudyHeroSection from '@/app/components/CaseStudyHeroSection';
 import CaseStudyAboutSection from '@/app/components/CaseStudyAboutSection';
-import Testamonial from '@/app/components/Testamonial';
 import Cta from '@/app/components/Cta';
 import Footer from '@/app/components/Footer';
 import Header from '@/app/components/Header';
@@ -37,8 +36,10 @@ export default async function ProjectPage({ params }) {
     notFound();
   }
 
-  const { title, description, image, tags } = project.fields;
+  const { title, description, image, tags, video } = project.fields;
   const { slug } = params; // Get the slug from params
+
+  console.log('Project Fields:', project.fields); // Debugging line
 
   return (
     <div>
@@ -47,6 +48,7 @@ export default async function ProjectPage({ params }) {
         title={title}
         description={description}
         image={image.fields.file.url}
+        video={video ? video.fields.file.url : null}
         tags={tags} />
       <CaseStudyAboutSection
         title={title}

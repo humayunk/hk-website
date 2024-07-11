@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import ProjectCard from './components/ProjectCard';
 import HeroSection from './components/HeroSection';
 import LogoClouds from './components/LogoClouds';
-import FeatureSection from './components/FeatureSection';
+import AboutSection from './components/AboutSection';
 import WorkSection from './components/WorkSection';
 import Footer from './components/Footer';
 import Cta from './components/Cta';
@@ -25,8 +25,8 @@ export default function Home() {
     <>
       <HeroSection />
       <LogoClouds />
-      <FeatureSection />
       <WorkSection projects={projects} />
+      <AboutSection />
       <Cta />
       <Footer />
     </>

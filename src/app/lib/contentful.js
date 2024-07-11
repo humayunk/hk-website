@@ -1,3 +1,4 @@
+// contentful.js
 import { createClient } from 'contentful';
 
 const client = createClient({
@@ -18,8 +19,14 @@ export async function fetchProjectData(slug) {
     'fields.slug': slug,
   });
 
-  return entries.items.map((item) => ({
+  if (!entries.items.length) {
+    return null;
+  }
+
+  const item = entries.items[0];
+  return {
     ...item.fields,
-    carouselImages: item.fields.carouselImage.map(image => image.fields.file.url)
-  }))[0];
+    carouselImages: item.fields.carouselImage ? item.fields.carouselImage.map(image => image.fields.file.url) : [],
+    video: item.fields.video ? item.fields.video.fields.file.url : null,
+  };
 }
