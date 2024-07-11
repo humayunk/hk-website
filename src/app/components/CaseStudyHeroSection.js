@@ -1,6 +1,34 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function CaseStudyHeroSection({ title, description, image, video, tags }) {
+  const [isVideoVisible, setIsVideoVisible] = useState(false);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsVideoVisible(true);
+              observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      if (videoRef.current) {
+        observer.observe(videoRef.current);
+      }
+    } else {
+      // Fallback for older browsers
+      setIsVideoVisible(true);
+    }
+  }, []);
+
   return (
     <div className="bg-white">
       <div className="relative isolate pt-14">
@@ -22,8 +50,8 @@ export default function CaseStudyHeroSection({ title, description, image, video,
               </div>
             </div>
             <div className="mt-16 flow-root sm:mt-24">
-              <div className="-m-2">
-                {video ? (
+              <div className="-m-2" ref={videoRef}>
+                {isVideoVisible && video ? (
                   <video
                     loop
                     autoPlay
