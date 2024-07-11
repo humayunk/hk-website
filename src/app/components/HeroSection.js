@@ -75,19 +75,19 @@ export default function HeroSection() {
             <div className="relative px-6 py-32 sm:py-40 lg:px-8 lg:py-56 lg:pr-0">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
                 <div className="hidden sm:mb-10 sm:flex">
-                  <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                  {/* <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                     Anim aute id magna aliqua ad ad non deserunt sunt.{' '}
                     <a href="#" className="whitespace-nowrap font-semibold text-indigo-600">
                       <span aria-hidden="true" className="absolute inset-0" />
                       Read more <span aria-hidden="true">&rarr;</span>
                     </a>
-                  </div>
+                  </div> */}
                 </div>
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                   Hi! I'm Humayun.
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
-                  I'm a Swiss-Army knife for SaaS businesses. I can help you design, develop and ship your next critical feature.
+                  I'm a Design Engineer who can help you conceptualize and ship your next critical product or growth project end-to-end.
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   <div>
