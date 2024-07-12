@@ -1,8 +1,8 @@
 'use client'
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Square3Stack3DIcon, HeartIcon, UserIcon, MapIcon } from '@heroicons/react/24/outline';
-import { fetchProjectData } from '../lib/contentful'; // Update the path as necessary
+import { fetchProjectData } from '../lib/contentful';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const features = [
   { name: 'Overview', icon: MapIcon },
@@ -11,12 +11,14 @@ const features = [
   { name: 'Results', icon: HeartIcon },
 ];
 
-export default function CaseStudyAboutSection({ title, slug, url }) {
+export default function CaseStudyAboutSection({ title, slug }) {
   const [projectData, setProjectData] = useState(null);
 
   useEffect(() => {
+    console.log("Fetching data for slug:", slug); // Debugging: Log the current slug
     const getData = async () => {
       const data = await fetchProjectData(slug);
+      console.log("Fetched data:", data); // Debugging: Log the fetched data
       setProjectData(data);
     };
 
@@ -26,6 +28,30 @@ export default function CaseStudyAboutSection({ title, slug, url }) {
   if (!projectData) {
     return <div>Loading...</div>;
   }
+
+  const renderFeatureContent = (feature) => {
+    const featureData = projectData[feature.name.toLowerCase()];
+    if (!featureData) {
+      return <div>No data available</div>;
+    }
+
+    if (feature.name === 'Tools' && Array.isArray(featureData)) {
+      return featureData.map((tool, index) => (
+        <div key={index}>{tool}</div>
+      ));
+    }
+
+    if (typeof featureData === 'string') {
+      return <p>{featureData}</p>;
+    }
+
+    try {
+      return documentToReactComponents(featureData);
+    } catch (error) {
+      console.error('Error rendering feature content:', error);
+      return <div>Failed to render content</div>;
+    }
+  };
 
   return (
     <div className="bg-white py-24 sm:py-32">
@@ -44,11 +70,7 @@ export default function CaseStudyAboutSection({ title, slug, url }) {
                   {feature.name}
                 </dt>
                 <dd className="mt-1 text-base leading-7 text-gray-600">
-                  {feature.name === 'Tools'
-                    ? projectData.tools.map((tool, index) => (
-                        <div key={index}>{tool}</div>
-                      ))
-                    : projectData[feature.name.toLowerCase()]}
+                  {renderFeatureContent(feature)}
                 </dd>
               </div>
             ))}
