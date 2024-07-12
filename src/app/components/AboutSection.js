@@ -10,13 +10,13 @@ const features = [
   {
     name: 'Product Design',
     description:
-      'Design a beautiful and intuitive product that users love. Create a seamless user experience that drives growth.',
+      'Go from sticky notes to wires or jump staright to creating a light design system and protoyping with high-fidelity mocks.',
     icon: CubeIcon,
   },
   {
-    name: 'Front-End Development',
+    name: 'Design Engineering',
     description:
-      'Build a fast and responsive web application that works on all devices. Optimize your site for search engines and performance.',
+      'Comfortable getting hands dirty with React, Next.js, TailwindCSS, Vercel and more.',
     icon: CursorArrowRaysIcon,
   },
   {
@@ -27,7 +27,7 @@ const features = [
   },
 ]
 
-export default function FeatureSection() {
+export default function AboutSection() {
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -37,7 +37,7 @@ export default function FeatureSection() {
             What I Do
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            I've worked as a Product Designer, PM, and Growth Marketer. Now I code too. The menu is expansive. Choose a la cart or get the full buffet.
+          Supercharge your growth team with a versatile expert who excels at brainstorming, prototyping in Figma, and deploying code to production.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
