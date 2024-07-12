@@ -37,9 +37,9 @@ export default async function ProjectPage({ params }) {
   }
 
   const { title, description, image, tags, video } = project.fields;
-  const { slug } = params; // Get the slug from params
 
   console.log('Project Fields:', project.fields); // Debugging line
+  console.log('Slug from Params:', params.slug); // Debugging line
 
   return (
     <div>
@@ -51,9 +51,11 @@ export default async function ProjectPage({ params }) {
         video={video ? video.fields.file.url : null}
         tags={tags} />
       <CaseStudyAboutSection
+        key={project.slug}
         title={title}
+        slug={params.slug} // Pass the slug from params
       />
-      <Carousel slug={slug} /> {/* Pass the slug to Carousel */}
+      <Carousel slug={params.slug} /> {/* Pass the slug to Carousel */}
       {/* <Testamonial /> */}
       <Cta />
       <Footer />

@@ -16,7 +16,7 @@ export async function fetchEntries(contentType) {
 export async function fetchProjectData(slug) {
   const entries = await client.getEntries({
     content_type: 'project', // Ensure this matches your content type ID in Contentful
-    'fields.slug': slug,
+    'fields.slug[in]': slug, // Ensure this matches the slug field in Contentful
   });
 
   if (!entries.items.length) {

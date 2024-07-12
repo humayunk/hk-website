@@ -34,7 +34,7 @@ const Carousel = ({ slug }) => {
   };
 
   return (
-    <div className="relative w-full bg-black" data-carousel="static">
+    <div className="relative w-full bg-black py-4" data-carousel="static">
       <div className="relative h-96 md:h-[40rem] overflow-hidden">
         {images.map((src, index) => (
           <div

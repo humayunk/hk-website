@@ -5,37 +5,37 @@ export default function LogoCloud() {
         <h2 className="text-center text-xl font-semibold leading-8 text-white font-mono">
           You're in good company
         </h2>
-        <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-4 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+        <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-3 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-4">
           <img
-            alt="Transistor"
+            alt="ClassDojo"
             src="../../images/classdojo.svg"
             width={158}
             height={48}
-            className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
+            className="col-span-1 max-h-8 w-full object-contain"
           />
           <img
-            alt="Reform"
+            alt="Roadmunk"
             src="../../images/roadmunk.svg"
             width={158}
             height={48}
-            className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
+            className="col-span-1 max-h-8 w-full object-contain"
           />
           <img
-            alt="Tuple"
+            alt="Shopify"
             src="../../images/shopify.png"
             width={158}
             height={48}
-            className="col-span-2 max-h-10 w-full object-contain lg:col-span-1"
+            className="col-span-1 max-h-10 w-full object-contain"
           />
           <img
-            alt="SavvyCal"
+            alt="RuthHealth"
             src="../../images/ruthhealth.svg"
             width={158}
             height={48}
-            className="col-span-2 max-h-10 w-full object-contain sm:col-start-2 lg:col-span-1"
+            className="col-span-1 max-h-10 w-full object-contain"
           />
         </div>
       </div>
     </div>
-  )
+  );
 }
