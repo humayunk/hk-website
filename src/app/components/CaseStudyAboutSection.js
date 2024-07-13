@@ -1,8 +1,9 @@
 'use client'
-import { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Square3Stack3DIcon, HeartIcon, UserIcon, MapIcon } from '@heroicons/react/24/outline';
 import { fetchProjectData } from '../lib/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import gsap from 'gsap';
 
 const features = [
   { name: 'Overview', icon: MapIcon },
@@ -13,6 +14,9 @@ const features = [
 
 export default function CaseStudyAboutSection({ title, slug }) {
   const [projectData, setProjectData] = useState(null);
+  const titleRef = useRef(null);
+  const featureRefs = useRef([]);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     console.log("Fetching data for slug:", slug); // Debugging: Log the current slug
@@ -24,6 +28,48 @@ export default function CaseStudyAboutSection({ title, slug }) {
 
     getData();
   }, [slug]);
+
+  useEffect(() => {
+    if (titleRef.current && featureRefs.current.length) {
+      const tl = gsap.timeline({ paused: true });
+
+      console.log('titleRef.current:', titleRef.current); // Debugging: Log titleRef
+      console.log('featureRefs.current:', featureRefs.current); // Debugging: Log featureRefs
+
+      tl.fromTo(titleRef.current,
+        { y: -50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.5, ease: 'power2.out' }
+      )
+      .fromTo(featureRefs.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.5, ease: 'power2.out', stagger: 0.3 },
+        '-=1'
+      );
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              console.log("IntersectionObserver triggered"); // Debugging: Log when the observer triggers
+              tl.play();
+              observer.disconnect(); // Stop observing once animation is triggered
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      if (containerRef.current) {
+        observer.observe(containerRef.current);
+      }
+
+      return () => {
+        if (containerRef.current) {
+          observer.unobserve(containerRef.current);
+        }
+      };
+    }
+  }, [titleRef.current, featureRefs.current.length]); // Add dependencies to ensure useEffect runs after refs are set
 
   if (!projectData) {
     return <div>Loading...</div>;
@@ -54,15 +100,15 @@ export default function CaseStudyAboutSection({ title, slug }) {
   };
 
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div ref={containerRef} className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-mono">
+          <h2 ref={titleRef} className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-mono">
             About {title}
           </h2>
           <dl className="col-span-2 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
-            {features.map((feature) => (
-              <div key={feature.name}>
+            {features.map((feature, index) => (
+              <div key={feature.name} ref={el => featureRefs.current[index] = el}>
                 <dt className="text-base font-semibold leading-7 text-gray-900 font-mono">
                   <div className="mb-6 flex h-10 w-10 items-center justify-center bg-black">
                     <feature.icon aria-hidden="true" className="h-6 w-6 text-white" />
