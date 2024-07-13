@@ -1,10 +1,28 @@
 import Link from 'next/link';
+import { useState } from 'react';
+import { EyeIcon } from '@heroicons/react/24/outline';
 
 export default function ProjectCard({ title, description, image, tags, slug }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <Link href={`/projects/${slug}`}>
-      <div className="block bg-white text-white shadow-md overflow-hidden border-4 border-black  transition-shadow duration-300 ease-in-out hover:shadow-solid-s">
-        {image && <img src={image} alt={title} className="w-full h-full object-cover" />}
+      <div
+        className="relative block bg-white text-white shadow-md overflow-hidden border-4 border-black transition-shadow duration-300 ease-in-out hover:shadow-solid-s"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {image && (
+          <div className="relative w-full h-full">
+            <img src={image} alt={title} className="w-full h-full object-cover" />
+            {isHovered && (
+              <div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center transition-opacity duration-300 ease-in-out">
+                <EyeIcon className="h-1/6 w-1/6 mb-2"/>
+                <p className="text-white text-lg font-mono">Let's see it</p>
+              </div>
+            )}
+          </div>
+        )}
         <div className="p-4 border-t-4 border-black">
           <div className="flex space-x-2 mb-2">
             {tags.map((tag) => (

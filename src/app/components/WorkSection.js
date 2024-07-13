@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ProjectCard from './ProjectCard';
 import { fetchEntries } from '../lib/contentful';
+import gsap from 'gsap';
 
 export default function WorkSection() {
   const [projects, setProjects] = useState([]);
+  const textRef = useRef(null);
+  const cardRefs = useRef([]);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     async function getProjects() {
@@ -18,11 +22,75 @@ export default function WorkSection() {
     getProjects();
   }, []);
 
+  useEffect(() => {
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo(textRef.current,
+      { y: -50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: 'power2.out' }
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            tl.play();
+            observer.disconnect(); // Stop observing once animation is triggered
+          }
+        });
+      },
+      { threshold: 0.5 } // Trigger when 50% of the component is in view
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            gsap.to(entry.target, {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+              ease: 'power2.out'
+            });
+            cardObserver.unobserve(entry.target); // Stop observing once animation is triggered
+          }
+        });
+      },
+      { threshold: 0.1 } // Trigger when 10% of the card is in view
+    );
+
+    cardRefs.current.forEach(card => {
+      if (card) {
+        gsap.set(card, { opacity: 0, y: 20 });
+        cardObserver.observe(card);
+      }
+    });
+
+    return () => {
+      cardRefs.current.forEach(card => {
+        if (card) {
+          cardObserver.unobserve(card);
+        }
+      });
+    };
+  }, [projects]);
+
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div ref={containerRef} className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center pb-16">
-          {/* <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2> */}
+        <div ref={textRef} className="mx-auto max-w-2xl lg:text-center pb-16">
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-mono">
             The Proof is in the Pudding
           </p>
@@ -32,7 +100,7 @@ export default function WorkSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <ProjectCard
               key={project.title}
               title={project.title}
@@ -41,6 +109,7 @@ export default function WorkSection() {
               video={project.video ? project.video.fields.file.url : null}
               tags={project.tags || []}
               slug={project.slug}
+              ref={el => cardRefs.current[index] = el}
             />
           ))}
         </div>

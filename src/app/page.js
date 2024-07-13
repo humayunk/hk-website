@@ -5,6 +5,7 @@
 import { useEffect, useState } from 'react';
 import ProjectCard from './components/ProjectCard';
 import HeroSection from './components/HeroSection';
+import HeroSectionAlt from './components/HeroSectionAlt';
 import LogoClouds from './components/LogoClouds';
 import AboutSection from './components/AboutSection';
 import WorkSection from './components/WorkSection';
@@ -23,7 +24,7 @@ export default function Home() {
 
   return (
     <>
-      <HeroSection />
+      <HeroSectionAlt />
       <LogoClouds />
       <WorkSection projects={projects} />
       <AboutSection />
