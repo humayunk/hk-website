@@ -29,9 +29,10 @@ export default function AboutSection() {
   const textRef = useRef(null);
   const featureRefs = useRef([]);
   const containerRef = useRef(null);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const tl = gsap.timeline({ paused: true });
+    const container = containerRef.current;
 
     tl.fromTo(textRef.current,
       { y: -50, opacity: 0 },
@@ -50,13 +51,13 @@ export default function AboutSection() {
       { threshold: 0.5 } // Trigger when 50% of the component is in view
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (container) {
+      observer.observe(container);
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (container) {
+        observer.unobserve(container);
       }
     };
   }, []);

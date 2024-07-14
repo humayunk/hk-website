@@ -41,7 +41,7 @@ export default function Footer() {
   const containerRef = useRef(null);
   const socialLinksRef = useRef([]);
   const textRef = useRef(null);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const tl = gsap.timeline({ paused: true });
 

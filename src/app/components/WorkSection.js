@@ -21,7 +21,7 @@ export default function WorkSection() {
 
     getProjects();
   }, []);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const tl = gsap.timeline({ paused: true });
 
@@ -95,7 +95,7 @@ export default function WorkSection() {
             The Proof is in the Pudding
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Whatever that means. Here's some projects. I collaborate with companies of all sizes. Sometimes I ship my own ideas too. Mostly, I like building s@*!.
+            Whatever that means. Here are some projects. I collaborate with companies of all sizes. Sometimes I ship my own ideas too. Mostly, I like building s@*!.
           </p>
         </div>
 

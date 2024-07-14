@@ -37,7 +37,7 @@ export default function HeroSection() {
       );
     }
   }, []);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const elements = [
       { id: 'astronaut' },
@@ -142,17 +142,13 @@ export default function HeroSection() {
           className="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 relative overflow-hidden"
           ref={svgContainerRef}
         >
-          <img
+          <image
             alt=""
             src="/images/space-background.jpg"
             className="aspect-[3/2] object-cover lg:aspect-auto sm:h-full sm:w-full"
           />
           <div className="absolute inset-0">
-            <img id="astronaut" src="/images/astronaut-2.png" alt="Astronaut" className="floating-svg w-1/2 sm:w-1/6 md:w-1/3 lg:w-1/2 h-auto absolute" />
-            {/* <img id="staircase" src="/images/staircase.svg" alt="Staircase" className="floating-svg w-1/3 h-1/3 absolute" /> */}
-            {/* <img id="star" src="/images/star.svg" alt="Star" className="floating-svg w-1/6 h-1/6 absolute" /> */}
-            {/* <img id="icon4" src="/images/icon4.png" alt="Icon 4" className="floating-svg w-16 h-16 absolute" />
-            <img id="icon5.png" alt="Icon 5" className="floating-svg w-16 h-16 absolute" /> */}
+            <image id="astronaut" src="/images/astronaut-2.png" alt="Astronaut" className="floating-svg w-1/2 sm:w-1/6 md:w-1/3 lg:w-1/2 h-auto absolute" />
           </div>
         </div>
       </div>

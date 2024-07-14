@@ -9,7 +9,7 @@ export default function CaseStudyHeroSection({ title, description, image, video,
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
   const tagsRef = useRef(null);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(
@@ -87,7 +87,7 @@ export default function CaseStudyHeroSection({ title, description, image, video,
                     Your browser does not support the video tag.
                   </video>
                 ) : (
-                  <img
+                  <image
                     alt="App screenshot"
                     src={image}
                     className="shadow-2xl ring-1 ring-gray-900/10"

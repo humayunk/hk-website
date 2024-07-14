@@ -5,7 +5,7 @@ export default function LogoCloud() {
   const headingRef = useRef(null);
   const logoRefs = useRef([]);
   const containerRef = useRef(null);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const tl = gsap.timeline({ paused: true });
 
@@ -49,7 +49,7 @@ export default function LogoCloud() {
           You're in good company
         </h2>
         <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-3 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-          <img
+          <image
             ref={el => logoRefs.current[0] = el}
             alt="ClassDojo"
             src="../../images/classdojo.svg"
@@ -57,7 +57,7 @@ export default function LogoCloud() {
             height={48}
             className="col-span-1 max-h-8 w-full object-contain"
           />
-          <img
+          <image
             ref={el => logoRefs.current[1] = el}
             alt="Roadmunk"
             src="../../images/roadmunk.svg"
@@ -65,7 +65,7 @@ export default function LogoCloud() {
             height={48}
             className="col-span-1 max-h-8 w-full object-contain"
           />
-          <img
+          <image
             ref={el => logoRefs.current[2] = el}
             alt="Shopify"
             src="../../images/shopify.png"
@@ -73,7 +73,7 @@ export default function LogoCloud() {
             height={48}
             className="col-span-1 max-h-10 w-full object-contain"
           />
-          <img
+          <image
             ref={el => logoRefs.current[3] = el}
             alt="RuthHealth"
             src="../../images/ruthhealth.svg"

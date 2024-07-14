@@ -7,7 +7,7 @@ import { fetchEntries } from '../lib/contentful'; // Adjust the path as necessar
 const Carousel = ({ slug }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([]);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const getImages = async () => {
       const entries = await fetchEntries('project');
@@ -43,7 +43,7 @@ const Carousel = ({ slug }) => {
               currentIndex === index ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <img
+            <image
               src={src}
               className="object-contain w-full h-full"
               alt={`Slide ${index + 1}`}

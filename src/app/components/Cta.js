@@ -8,7 +8,7 @@ export default function Example() {
   const headingRef = useRef(null);
   const textRef = useRef(null);
   const buttonRef = useRef(null);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const tl = gsap.timeline({ paused: true });
 

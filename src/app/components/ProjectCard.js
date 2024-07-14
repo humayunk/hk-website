@@ -14,11 +14,11 @@ export default function ProjectCard({ title, description, image, tags, slug }) {
       >
         {image && (
           <div className="relative w-full h-full">
-            <img src={image} alt={title} className="w-full h-full object-cover" />
+            <image src={image} alt={title} className="w-full h-full object-cover" />
             {isHovered && (
               <div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center transition-opacity duration-300 ease-in-out">
                 <EyeIcon className="h-1/6 w-1/6 mb-2"/>
-                <p className="text-white text-lg font-mono">Let's see it</p>
+                <p className="text-white text-lg font-mono">Read more</p>
               </div>
             )}
           </div>
