@@ -30,17 +30,21 @@ export default function CaseStudyAboutSection({ title, slug }) {
   }, [slug]);
 
   useEffect(() => {
-    if (titleRef.current && featureRefs.current.length) {
+    const currentContainerRef = containerRef.current; // Store the current value of containerRef.current
+    const currentTitleRef = titleRef.current; // Store the current value of titleRef.current
+    const currentFeatureRefs = featureRefs.current; // Store the current value of featureRefs.current
+
+    if (currentTitleRef && currentFeatureRefs.length) {
       const tl = gsap.timeline({ paused: true });
 
-      console.log('titleRef.current:', titleRef.current); // Debugging: Log titleRef
-      console.log('featureRefs.current:', featureRefs.current); // Debugging: Log featureRefs
+      console.log('titleRef.current:', currentTitleRef); // Debugging: Log titleRef
+      console.log('featureRefs.current:', currentFeatureRefs); // Debugging: Log featureRefs
 
-      tl.fromTo(titleRef.current,
+      tl.fromTo(currentTitleRef,
         { y: -50, opacity: 0 },
         { y: 0, opacity: 1, duration: 1.5, ease: 'power2.out' }
       )
-      .fromTo(featureRefs.current,
+      .fromTo(currentFeatureRefs,
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, duration: 1.5, ease: 'power2.out', stagger: 0.3 },
         '-=1'
@@ -59,17 +63,17 @@ export default function CaseStudyAboutSection({ title, slug }) {
         { threshold: 0.5 }
       );
 
-      if (containerRef.current) {
-        observer.observe(containerRef.current);
+      if (currentContainerRef) {
+        observer.observe(currentContainerRef);
       }
 
       return () => {
-        if (containerRef.current) {
-          observer.unobserve(containerRef.current);
+        if (currentContainerRef) {
+          observer.unobserve(currentContainerRef);
         }
       };
     }
-  }, [titleRef.current, featureRefs.current.length]); // Add dependencies to ensure useEffect runs after refs are set
+  }, [projectData]); // Run this effect when projectData changes
 
   if (!projectData) {
     return <div>Loading...</div>;

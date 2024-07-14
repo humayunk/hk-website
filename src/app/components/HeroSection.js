@@ -1,9 +1,11 @@
+'use client'
+
 import { useState, useEffect } from 'react';
 import Header from './Header';
-
 import gsap from 'gsap';
 import TextPlugin from 'gsap/TextPlugin';
 import Button from './Button';
+import Image from 'next/image';
 
 gsap.registerPlugin(TextPlugin);
 
@@ -40,7 +42,7 @@ export default function HeroSection() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     const revealElement = document.getElementById('image-reveal');
     if (revealElement && isDesktop) {
@@ -102,7 +104,7 @@ export default function HeroSection() {
                   {/* The text will be animated here */}
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600 font-sans">
-                  I'm a Design Engineer who can help you conceptualize and ship your next critical product or growth project end-to-end.
+                  I&apos;m a Design Engineer who can help you conceptualize and ship your next critical product or growth project end-to-end.
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   <Button />
@@ -116,9 +118,11 @@ export default function HeroSection() {
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
-          <image
+          <Image
             alt=""
             src="/images/hero-image.jpeg"
+            layout="fill"
+            objectFit="cover"
             className="aspect-[3/2] object-cover lg:aspect-auto sm:h-full sm:w-full lg:blur-lg"
           />
           <div id="image-reveal" className="absolute inset-0"></div>

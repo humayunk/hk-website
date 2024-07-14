@@ -21,8 +21,10 @@ export default function WorkSection() {
 
     getProjects();
   }, []);
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(() => {
+    const currentContainerRef = containerRef.current;
+
     const tl = gsap.timeline({ paused: true });
 
     tl.fromTo(textRef.current,
@@ -42,18 +44,20 @@ export default function WorkSection() {
       { threshold: 0.5 } // Trigger when 50% of the component is in view
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (currentContainerRef) {
+      observer.observe(currentContainerRef);
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (currentContainerRef) {
+        observer.unobserve(currentContainerRef);
       }
     };
   }, []);
 
   useEffect(() => {
+    const currentCardRefs = cardRefs.current; // Store the current value of cardRefs.current
+
     const cardObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -71,7 +75,7 @@ export default function WorkSection() {
       { threshold: 0.1 } // Trigger when 10% of the card is in view
     );
 
-    cardRefs.current.forEach(card => {
+    currentCardRefs.forEach(card => {
       if (card) {
         gsap.set(card, { opacity: 0, y: 20 });
         cardObserver.observe(card);
@@ -79,7 +83,7 @@ export default function WorkSection() {
     });
 
     return () => {
-      cardRefs.current.forEach(card => {
+      currentCardRefs.forEach(card => {
         if (card) {
           cardObserver.unobserve(card);
         }

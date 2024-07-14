@@ -4,6 +4,7 @@ import { useState, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -36,9 +37,11 @@ export default function Header() {
               </button>
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <img
+                <Image
                   alt="Your Company"
                   src="/images/hk.png"
+                  width={48} // Replace with the actual width of your image
+                  height={24} // Replace with the actual height of your image
                   className="h-6 w-12"
                 />
               </Link>

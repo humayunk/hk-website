@@ -129,7 +129,7 @@ export default function HeroSection() {
                   {/* The text will be animated here */}
                 </h1>
                 <p ref={paragraphRef} className="mt-6 text-lg leading-8 text-gray-600 font-sans">
-                  I'm a Design Engineer who can help you conceptualize and ship your next critical product or growth project end-to-end.
+                  I&apos;m a Design Engineer who can help you conceptualize and ship your next critical product or growth project end-to-end.
                 </p>
                 <div ref={buttonRef} className="mt-10 flex items-center gap-x-6">
                   <Button />
