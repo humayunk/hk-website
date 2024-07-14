@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
-import emailjs from 'emailjs-com';
 
 const initialFormState = {
   firstName: '',
@@ -19,27 +18,37 @@ export default function ContactModal({ isOpen, closeModal }) {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const templateParams = {
       from_name: `${form.firstName} ${form.lastName}`,
       to_name: 'Your Name', // Replace with the name you want to use
-      message: form.message
+      subject: form.subject,
+      message: form.message,
+      reply_to: form.email
     };
 
-    emailjs.send(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-      templateParams,
-      process.env.NEXT_PUBLIC_EMAILJS_USER_ID
-    ).then((result) => {
-      console.log(result.text);
-      setForm(initialFormState); // Reset the form state
-      closeModal(); // Close the modal on success
-    }, (error) => {
-      console.log(error.text);
-    });
+    try {
+      const response = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(templateParams),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        console.log(result.message);
+        setForm(initialFormState); // Reset the form state
+        closeModal(); // Close the modal on success
+      } else {
+        console.error('Failed to send email:', result.error);
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
   };
 
   return (

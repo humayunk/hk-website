@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import TextPlugin from 'gsap/TextPlugin';
 import { Draggable } from 'gsap/Draggable';
 import Button from './Button';
+import Image from 'next/image';
 
 gsap.registerPlugin(TextPlugin, Draggable);
 
@@ -37,12 +38,10 @@ export default function HeroSection() {
       );
     }
   }, []);
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     const elements = [
       { id: 'astronaut' },
-      // { id: 'staircase' },
-      // { id: 'star' },
     ];
 
     const startFloating = (element) => {
@@ -71,7 +70,7 @@ export default function HeroSection() {
 
             gsap.set(element, {
               x: containerCenterX - elementWidth / 2,
-              y: -elementHeight, // Start above the container
+              y: -elementHeight,
             });
 
             gsap.fromTo(element,
@@ -117,13 +116,6 @@ export default function HeroSection() {
             <div className="relative px-6 py-32 sm:py-40 lg:px-8 lg:py-56 lg:pr-0">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
                 <div className="hidden sm:mb-10 sm:flex">
-                  {/* <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                    Anim aute id magna aliqua ad ad non deserunt sunt.{' '}
-                    <a href="#" className="whitespace-nowrap font-semibold text-indigo-600">
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      Read more <span aria-hidden="true">&rarr;</span>
-                    </a>
-                  </div> */}
                 </div>
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-7xl font-mono gsap-header">
                   {/* The text will be animated here */}
@@ -142,13 +134,15 @@ export default function HeroSection() {
           className="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 relative overflow-hidden"
           ref={svgContainerRef}
         >
-          <image
-            alt=""
+          <Image
+            alt="Space Background"
             src="/images/space-background.jpg"
+            layout="fill"
+            objectFit="cover"
             className="aspect-[3/2] object-cover lg:aspect-auto sm:h-full sm:w-full"
           />
-          <div className="absolute inset-0">
-            <image id="astronaut" src="/images/astronaut-2.png" alt="Astronaut" className="floating-svg w-1/2 sm:w-1/6 md:w-1/3 lg:w-1/2 h-auto absolute" />
+          <div className="absolute inset-0 flex justify-center items-center">
+            <Image id="astronaut" src="/images/astronaut-2.png" alt="Astronaut" layout="intrinsic" width={500} height={500} className="floating-svg w-1/2 sm:w-1/6 md:w-1/3 lg:w-1/2 h-auto absolute" />
           </div>
         </div>
       </div>
