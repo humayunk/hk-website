@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import Image from 'next/image';
 
 export default function CaseStudyHeroSection({ title, description, image, video, tags }) {
   const [isVideoVisible, setIsVideoVisible] = useState(false);
@@ -9,7 +10,7 @@ export default function CaseStudyHeroSection({ title, description, image, video,
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
   const tagsRef = useRef(null);
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(
@@ -52,6 +53,8 @@ export default function CaseStudyHeroSection({ title, description, image, video,
     );
   }, []);
 
+  const formattedImage = image.startsWith('//') ? `https:${image}` : image;
+
   return (
     <div className="bg-white">
       <div className="relative isolate pt-14">
@@ -87,10 +90,13 @@ export default function CaseStudyHeroSection({ title, description, image, video,
                     Your browser does not support the video tag.
                   </video>
                 ) : (
-                  <image
+                  <Image
                     alt="App screenshot"
-                    src={image}
+                    src={formattedImage}
                     className="shadow-2xl ring-1 ring-gray-900/10"
+                    layout="responsive"
+                    width={700}
+                    height={475}
                   />
                 )}
               </div>

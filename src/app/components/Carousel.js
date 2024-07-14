@@ -3,17 +3,21 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { fetchEntries } from '../lib/contentful'; // Adjust the path as necessary
+import Image from 'next/image';
 
 const Carousel = ({ slug }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([]);
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     const getImages = async () => {
       const entries = await fetchEntries('project');
       const project = entries.find(entry => entry.fields.slug === slug);
       if (project) {
-        setImages(project.fields.carouselImage.map(image => image.fields.file.url));
+        setImages(project.fields.carouselImage.map(image => {
+          const url = image.fields.file.url;
+          return url.startsWith('//') ? `https:${url}` : url;
+        }));
       }
     };
     getImages();
@@ -43,10 +47,12 @@ const Carousel = ({ slug }) => {
               currentIndex === index ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <image
+            <Image
               src={src}
               className="object-contain w-full h-full"
               alt={`Slide ${index + 1}`}
+              layout="fill"
+              objectFit="contain"
             />
           </div>
         ))}

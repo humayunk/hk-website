@@ -32,8 +32,8 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
 
-         {/* Open Graph Meta Tags */}
-         <meta property="og:title" content="Humayun Khan - Design Engineer" />
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Humayun Khan - Design Engineer" />
         <meta property="og:description" content="Product Design & Development for Startups" />
         <meta property="og:image" content="https://humayunk.com/preview-image.png" />
         <meta property="og:url" content="https://humayunk.com" />
@@ -44,8 +44,26 @@ export default function RootLayout({ children }) {
         <meta name="twitter:title" content="Humayun Khan - Design Engineer" />
         <meta name="twitter:description" content="Product Design & Development for Startups" />
         <meta name="twitter:image" content="https://humayunk.com/preview-image.png" />
+
+        {/* Preload Fonts */}
+        <link
+          rel="preload"
+          href={ibmPlexMono.url}
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href={ibmPlexSans.url}
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
       </head>
-      <body className={`${inter.className} ${ibmPlexSans.variable} font-sans`}>{children}</body>
+      <body className={`${inter.className} ${ibmPlexSans.variable} font-sans`}>
+        {children}
+      </body>
     </html>
   );
 }

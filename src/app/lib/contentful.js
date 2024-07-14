@@ -1,45 +1,56 @@
 import { createClient } from 'contentful';
 
-const contentful = require('contentful');
-
-const client = contentful.createClient({
+const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
 export const fetchEntries = async (contentType) => {
-  const entries = await client.getEntries({ content_type: contentType });
-  return entries.items;
+  try {
+    console.log('Fetching entries for content type:', contentType); // Debug log
+    const entries = await client.getEntries({ content_type: contentType });
+    console.log('Fetched entries:', entries); // Debug log
+    return entries.items;
+  } catch (error) {
+    console.error('Error fetching entries:', error);
+    throw error;
+  }
 };
 
 export async function fetchProjectData(slug) {
-  const entries = await client.getEntries({
-    content_type: 'project',
-    'fields.slug[in]': slug,
-  });
+  try {
+    console.log('Fetching project data for slug:', slug); // Debug log
+    const entries = await client.getEntries({
+      content_type: 'project',
+      'fields.slug[in]': slug,
+    });
 
-  if (!entries.items.length) {
-    return null;
+    console.log('Fetched project data:', entries); // Debug log
+
+    if (!entries.items.length) {
+      return null;
+    }
+
+    const item = entries.items[0];
+    const carouselImages = item.fields.carouselImage
+      ? item.fields.carouselImage.map(image => {
+          const url = image.fields.file.url;
+          return url.startsWith('//') ? `https:${url}` : url;
+        })
+      : [];
+    const video = item.fields.video
+      ? item.fields.video.fields.file.url.startsWith('//')
+        ? `https:${item.fields.video.fields.file.url}`
+        : item.fields.video.fields.file.url
+      : null;
+
+    return {
+      ...item.fields,
+      carouselImages,
+      video,
+    };
+  } catch (error) {
+    console.error('Error fetching project data:', error);
+    throw error;
   }
-
-  const item = entries.items[0];
-  const carouselImages = item.fields.carouselImage
-    ? item.fields.carouselImage.map(image => {
-        const url = image.fields.file.url;
-        const finalUrl = url.startsWith('//') ? `https:${url}` : url;
-        console.log('Image URL:', finalUrl); // Add this line for logging
-        return finalUrl;
-      })
-    : [];
-  const video = item.fields.video
-    ? item.fields.video.fields.file.url.startsWith('//')
-      ? `https:${item.fields.video.fields.file.url}`
-      : item.fields.video.fields.file.url
-    : null;
-
-  return {
-    ...item.fields,
-    carouselImages,
-    video,
-  };
 }
