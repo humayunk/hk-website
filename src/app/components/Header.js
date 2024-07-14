@@ -38,7 +38,7 @@ export default function Header() {
                 <span className="sr-only">Your Company</span>
                 <img
                   alt="Your Company"
-                  src="../images/hk.png"
+                  src="/images/hk.png"
                   className="h-6 w-12"
                 />
               </Link>
@@ -51,14 +51,6 @@ export default function Header() {
           <div className="fixed inset-0 bg-black bg-opacity-25" />
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex flex-row-reverse">
-              {/* <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
-                <img
-                  alt=""
-                  src=""
-                  className="h-8 w-auto"
-                />
-              </a> */}
               <button
                 type="button"
                 onClick={handleClose}
@@ -72,13 +64,13 @@ export default function Header() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
                       href={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
                 {/* <div className="py-6">

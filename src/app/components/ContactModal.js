@@ -80,7 +80,7 @@ export default function ContactModal({ isOpen, closeModal }) {
                   </svg>
                 </button>
                 <Dialog.Title as="h3" className="text-xl font-bold leading-6 text-gray-900 font-mono">
-                  Let's chat!
+                  Let&apos;s chat!
                 </Dialog.Title>
                 <form onSubmit={handleSubmit} className="mt-6">
                   <div className="grid grid-cols-2 gap-x-8 gap-y-6">

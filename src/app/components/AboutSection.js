@@ -79,17 +79,19 @@ export default function AboutSection() {
       { threshold: 0.1 } // Trigger when 10% of the feature is in view
     );
 
-    featureRefs.current.forEach(feature => {
-      if (feature) {
-        gsap.set(feature, { opacity: 0, y: 20 });
-        featureObserver.observe(feature);
+    featureRefs.current.forEach((feature, index) => {
+      const featureElement = featureRefs.current[index];
+      if (featureElement) {
+        gsap.set(featureElement, { opacity: 0, y: 20 });
+        featureObserver.observe(featureElement);
       }
     });
 
     return () => {
-      featureRefs.current.forEach(feature => {
-        if (feature) {
-          featureObserver.unobserve(feature);
+      featureRefs.current.forEach((feature, index) => {
+        const featureElement = featureRefs.current[index];
+        if (featureElement) {
+          featureObserver.unobserve(featureElement);
         }
       });
     };

@@ -45,11 +45,14 @@ export default function Footer() {
   useEffect(() => {
     const tl = gsap.timeline({ paused: true });
 
-    tl.fromTo(textRef.current,
+    const text = textRef.current;
+    const socialLinks = socialLinksRef.current;
+
+    tl.fromTo(text,
       { y: 50, opacity: 0 },
       { y: 0, opacity: 1, duration: 1, ease: 'power2.out' }
     )
-    .fromTo(socialLinksRef.current,
+    .fromTo(socialLinks,
       { y: 50, opacity: 0 },
       { y: 0, opacity: 1, duration: 1, ease: 'power2.out', stagger: 0.2 },
       '-=0.5'
@@ -67,13 +70,14 @@ export default function Footer() {
       { threshold: 0.5 } // Trigger when 50% of the component is in view
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    const container = containerRef.current;
+    if (container) {
+      observer.observe(container);
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (container) {
+        observer.unobserve(container);
       }
     };
   }, []);

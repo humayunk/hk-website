@@ -12,16 +12,20 @@ export default function Example() {
   useEffect(() => {
     const tl = gsap.timeline({ paused: true });
 
-    tl.fromTo(headingRef.current,
+    const heading = headingRef.current;
+    const text = textRef.current;
+    const button = buttonRef.current;
+
+    tl.fromTo(heading,
       { x: -100, opacity: 0 },
       { x: 0, opacity: 1, duration: 1, ease: 'power2.out' }
     )
-    .fromTo(textRef.current,
+    .fromTo(text,
       { y: 20, opacity: 0 },
       { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
       '-=0.5' // Overlap with the end of the heading animation
     )
-    .fromTo(buttonRef.current,
+    .fromTo(button,
       { y: 20, opacity: 0 },
       { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
       '-=0.5' // Overlap with the end of the text animation
@@ -39,13 +43,14 @@ export default function Example() {
       { threshold: 0.5 } // Trigger when 50% of the component is in view
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    const container = containerRef.current;
+    if (container) {
+      observer.observe(container);
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (container) {
+        observer.unobserve(container);
       }
     };
   }, []);
@@ -55,10 +60,10 @@ export default function Example() {
       <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 ref={headingRef} className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-mono">
-            Have a project? Let's talk.
+            Have a project? Let&apos;s talk.
           </h2>
           <p ref={textRef} className="mx-auto my-6 max-w-xl text-lg leading-8 text-gray-600">
-            I'm currently available for full-time and contract work. Say hello and I'll get back to you within 24 hours.
+            I&apos;m currently available for full-time and contract work. Say hello and I&apos;ll get back to you within 24 hours.
           </p>
           <div ref={buttonRef}>
             <Button />
