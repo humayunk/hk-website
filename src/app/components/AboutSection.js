@@ -29,7 +29,7 @@ export default function AboutSection() {
   const textRef = useRef(null);
   const featureRefs = useRef([]);
   const containerRef = useRef(null);
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     const tl = gsap.timeline({ paused: true });
     const container = containerRef.current;
@@ -44,11 +44,11 @@ export default function AboutSection() {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             tl.play();
-            observer.disconnect(); // Stop observing once animation is triggered
+            observer.disconnect();
           }
         });
       },
-      { threshold: 0.5 } // Trigger when 50% of the component is in view
+      { threshold: 0.5 }
     );
 
     if (container) {
@@ -73,15 +73,17 @@ export default function AboutSection() {
               duration: 1,
               ease: 'power2.out'
             });
-            featureObserver.unobserve(entry.target); // Stop observing once animation is triggered
+            featureObserver.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 } // Trigger when 10% of the feature is in view
+      { threshold: 0.1 }
     );
 
-    featureRefs.current.forEach((feature, index) => {
-      const featureElement = featureRefs.current[index];
+    // Capture the current value of featureRefs.current
+    const currentFeatureRefs = featureRefs.current;
+
+    currentFeatureRefs.forEach((featureElement) => {
       if (featureElement) {
         gsap.set(featureElement, { opacity: 0, y: 20 });
         featureObserver.observe(featureElement);
@@ -89,8 +91,8 @@ export default function AboutSection() {
     });
 
     return () => {
-      featureRefs.current.forEach((feature, index) => {
-        const featureElement = featureRefs.current[index];
+      // Use the captured value in the cleanup function
+      currentFeatureRefs.forEach((featureElement) => {
         if (featureElement) {
           featureObserver.unobserve(featureElement);
         }
