@@ -36,9 +36,9 @@ export default function Header() {
                 <Bars3Icon aria-hidden="true" className="h-6 w-6" />
               </button>
               <Link href="/" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
+                <span className="sr-only">Humayun Khan</span>
                 <Image
-                  alt="Your Company"
+                  alt="Humayun Khan"
                   src="/images/hk.png"
                   width={48} // Replace with the actual width of your image
                   height={24} // Replace with the actual height of your image
