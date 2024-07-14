@@ -70,7 +70,7 @@ export default function HeroSection() {
 
             gsap.set(element, {
               x: containerCenterX - elementWidth / 2,
-              y: -elementHeight,
+              y: containerCenterY - elementHeight / 2,
             });
 
             gsap.fromTo(element,
@@ -131,18 +131,26 @@ export default function HeroSection() {
           </div>
         </div>
         <div
-          className="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 relative overflow-hidden"
+          className="bg-gray-50 relative overflow-hidden lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 md:w-full sm:w-full"
           ref={svgContainerRef}
         >
           <Image
             alt="Space Background"
             src="/images/space-background.jpg"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className="aspect-[3/2] object-cover lg:aspect-auto sm:h-full sm:w-full"
           />
-          <div className="absolute inset-0 flex justify-center items-center">
-            <Image id="astronaut" src="/images/astronaut-2.png" alt="Astronaut" layout="intrinsic" width={500} height={500} className="floating-svg w-1/2 sm:w-1/6 md:w-1/3 lg:w-1/2 h-auto absolute" />
+          <div className="absolute inset-0">
+            <Image
+              id="astronaut"
+              src="/images/astronaut-2.png"
+              alt="Astronaut"
+              width={500}
+              height={500}
+              style={{ objectFit: 'contain' }}
+              className="w-24 sm:w-36 md:w-48 lg:w-64 h-auto absolute"
+            />
           </div>
         </div>
       </div>

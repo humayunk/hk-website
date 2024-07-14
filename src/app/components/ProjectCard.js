@@ -6,8 +6,6 @@ import Image from 'next/image';
 export default function ProjectCard({ title, description, image, tags, slug }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  console.log('Image URL in ProjectCard:', image); // Add this line for logging
-
   return (
     <Link href={`/projects/${slug}`}>
       <div
@@ -16,8 +14,13 @@ export default function ProjectCard({ title, description, image, tags, slug }) {
         onMouseLeave={() => setIsHovered(false)}
       >
         {image && (
-          <div className="relative w-full h-full">
-            <Image src={image} alt={title} layout="fill" objectFit="cover" />
+          <div className="relative w-full h-64">
+            <Image
+              src={image.startsWith('//') ? `https:${image}` : image}
+              alt={title}
+              layout="fill"
+              objectFit="cover"
+            />
             {isHovered && (
               <div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center transition-opacity duration-300 ease-in-out">
                 <EyeIcon className="h-1/6 w-1/6 mb-2" />
