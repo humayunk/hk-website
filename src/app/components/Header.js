@@ -39,7 +39,7 @@ export default function Header() {
                 <span className="sr-only">Humayun Khan</span>
                 <Image
                   alt="Humayun Khan"
-                  src="/images/hk.png"
+                  src="/images/logo.png"
                   width={48} // Replace with the actual width of your image
                   height={24} // Replace with the actual height of your image
                   className="h-6 w-12"
