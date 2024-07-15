@@ -49,31 +49,8 @@ export default function CaseStudyAboutSection({ title, slug }) {
       '-=1'
     );
 
-    const observerCallback = (entries, observer) => {
-      entries.forEach(entry => {
-        console.log('IntersectionObserver entry:', entry);
-        if (entry.isIntersecting) {
-          tl.play();
-          observer.disconnect();
-        }
-      });
-    };
+    tl.play(); // Play the animation directly
 
-    const observerOptions = {
-      threshold: 0.5
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
-    };
   }, [projectData]);
 
   if (!projectData) {
