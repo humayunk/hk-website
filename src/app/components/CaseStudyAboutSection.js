@@ -17,6 +17,7 @@ export default function CaseStudyAboutSection({ title, slug }) {
   const titleRef = useRef(null);
   const featureRefs = useRef([]);
   const containerRef = useRef(null);
+  const websiteRef = useRef(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -37,23 +38,32 @@ export default function CaseStudyAboutSection({ title, slug }) {
       { y: -50, opacity: 0 },
       { y: 0, opacity: 1, duration: 1.5, ease: 'power2.out' }
     )
+    .fromTo(websiteRef.current,
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.5, ease: 'power2.out' },
+      '-=1'
+    )
     .fromTo(featureRefs.current,
       { y: 50, opacity: 0 },
       { y: 0, opacity: 1, duration: 1.5, ease: 'power2.out', stagger: 0.3 },
       '-=1'
     );
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            tl.play();
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+    const observerCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        console.log('IntersectionObserver entry:', entry);
+        if (entry.isIntersecting) {
+          tl.play();
+          observer.disconnect();
+        }
+      });
+    };
+
+    const observerOptions = {
+      threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
 
     if (containerRef.current) {
       observer.observe(containerRef.current);
@@ -118,7 +128,7 @@ export default function CaseStudyAboutSection({ title, slug }) {
         <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:gap-y-20 lg:grid-cols-3">
           <div className="lg:col-span-1 lg:col-start-1 lg:row-start-1">
             {projectData.url && (
-              <div className="mb-8">
+              <div className="mb-8" ref={websiteRef}>
                 <dt className="text-xl font-semibold leading-7 text-gray-900 font-mono">
                   Website
                 </dt>
