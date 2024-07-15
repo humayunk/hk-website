@@ -4,23 +4,23 @@ import gsap from 'gsap';
 
 const features = [
   {
-    name: 'Idea Validation',
-    description: 'Prototype and validate your idea with real users. Get feedback on your product and make data-driven decisions.',
-    icon: BoltIcon,
-  },
-  {
-    name: 'Product Design',
-    description: 'Go from sticky notes to wires or jump straight to creating a light design system and prototyping with high-fidelity mocks.',
+    name: 'Product Strategy',
+    description: 'Define and implement product strategies that align with business goals. Conduct market research, identify user needs, and prioritize features to ensure product success.',
     icon: CubeIcon,
   },
   {
-    name: 'Design Engineering',
-    description: 'Comfortable getting hands dirty with React, Next.js, TailwindCSS, Vercel and more.',
+    name: 'Product Design and Prototyping',
+    description: 'Transform ideas into high-fidelity prototypes using Figma and other design tools. Develop user-friendly interfaces that drive engagement and meet business goals.',
+    icon: BoltIcon,
+  },
+  {
+    name: 'Front-End Development',
+    description: 'Build responsive and performant web applications with React, Next.js, and TailwindCSS. Write clean, maintainable code and bring designs to life with precision.',
     icon: CursorArrowRaysIcon,
   },
   {
-    name: 'Landing Pages',
-    description: 'Create high-converting landing pages that drive signups and sales. Optimize your site for search engines and performance.',
+    name: 'Full-Stack Integration',
+    description: 'Leverage full-stack development skills to integrate front-end and back-end systems. Utilize Express.js, MongoDB, and Node.js to build robust, scalable applications.',
     icon: FunnelIcon,
   },
 ];
@@ -48,7 +48,7 @@ export default function AboutSection() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     );
 
     if (container) {
@@ -80,7 +80,6 @@ export default function AboutSection() {
       { threshold: 0.1 }
     );
 
-    // Capture the current value of featureRefs.current
     const currentFeatureRefs = featureRefs.current;
 
     currentFeatureRefs.forEach((featureElement) => {
@@ -91,7 +90,6 @@ export default function AboutSection() {
     });
 
     return () => {
-      // Use the captured value in the cleanup function
       currentFeatureRefs.forEach((featureElement) => {
         if (featureElement) {
           featureObserver.unobserve(featureElement);
@@ -108,7 +106,7 @@ export default function AboutSection() {
             What I Do
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Supercharge your growth team with a versatile expert who excels at brainstorming, prototyping in Figma, and deploying code to production.
+            Supercharge your growth team with a versatile expert who excels at creating high-quality, user-centered products from concept to production.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
