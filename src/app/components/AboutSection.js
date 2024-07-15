@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { CursorArrowRaysIcon, BoltIcon, CircleStackIcon, CubeIcon } from '@heroicons/react/24/outline';
+import { CursorArrowRaysIcon, BoltIcon, FunnelIcon, CubeIcon } from '@heroicons/react/24/outline';
 import gsap from 'gsap';
 
 const features = [
@@ -20,8 +20,8 @@ const features = [
   },
   {
     name: 'Full-Stack Integration',
-    description: 'Leverage full-stack development skills to integrate front-end and back-end systems. Utilize Ruby on Rails to build robust, scalable applications.',
-    icon: CircleStackIcon,
+    description: 'Leverage full-stack development skills to integrate front-end and back-end systems. Utilize Express.js, MongoDB, and Node.js to build robust, scalable applications.',
+    icon: FunnelIcon,
   },
 ];
 
