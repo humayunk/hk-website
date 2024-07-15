@@ -131,7 +131,7 @@ export default function HeroSection() {
           </div>
         </div>
         <div
-          className="bg-gray-50 relative overflow-hidden lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 md:w-full sm:w-full"
+          className="bg-gray-50 relative overflow-hidden w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
           ref={svgContainerRef}
         >
           <Image
@@ -139,7 +139,7 @@ export default function HeroSection() {
             src="/images/space-background.jpg"
             fill
             style={{ objectFit: 'cover' }}
-            className="aspect-[3/2] object-cover lg:aspect-auto sm:h-full sm:w-full"
+            className="aspect-[3/2] object-cover lg:aspect-auto"
           />
           <div className="absolute inset-0">
             <Image
@@ -149,7 +149,7 @@ export default function HeroSection() {
               width={500}
               height={500}
               style={{ objectFit: 'contain' }}
-              className="w-24 sm:w-36 md:w-48 lg:w-64 h-auto absolute"
+              className="w-48 sm:w-48 md:w-48 lg:w-72 h-auto absolute"
             />
           </div>
         </div>
