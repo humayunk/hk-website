@@ -57,10 +57,3 @@ body {
   height: 100%;
   object-fit: contain; /* 'contain' ensures the entire video fits within the container */
 }
-
-/* Add this to your global styles or a relevant CSS file */
-.pb-9/16 {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-}
