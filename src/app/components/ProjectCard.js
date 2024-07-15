@@ -14,12 +14,12 @@ export default function ProjectCard({ title, description, image, tags, slug }) {
         onMouseLeave={() => setIsHovered(false)}
       >
         {image && (
-          <div className="relative w-full h-64">
+          <div className="relative w-full h-64 bg-black">
             <Image
               src={image.startsWith('//') ? `https:${image}` : image}
               alt={title}
               layout="fill"
-              objectFit="cover"
+              objectFit="contain" // or 'cover' based on your preference
             />
             {isHovered && (
               <div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center transition-opacity duration-300 ease-in-out">
@@ -30,7 +30,7 @@ export default function ProjectCard({ title, description, image, tags, slug }) {
           </div>
         )}
         <div className="p-4 border-t-4 border-black">
-          <div className="flex space-x-2 mb-2">
+          <div className="flex flex-wrap space-x-2 mb-2 ">
             {tags.map((tag) => (
               <span key={tag} className="bg-black text-xs font-semibold px-2 py-1">
                 {tag}
