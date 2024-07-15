@@ -43,7 +43,27 @@ export default function CaseStudyAboutSection({ title, slug }) {
       '-=1'
     );
 
-    tl.play();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            tl.play();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
   }, [projectData]);
 
   if (!projectData) {
