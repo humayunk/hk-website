@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { fetchProjectData } from '../lib/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import gsap from 'gsap';
 
 const features = [
   { name: 'Overview' },
@@ -20,7 +21,7 @@ export default function CaseStudyAboutSection({ title, slug }) {
   useEffect(() => {
     const getData = async () => {
       const data = await fetchProjectData(slug);
-      console.log('Fetched project data:', data); // Log fetched data
+      console.log('Fetched project data:', data);
       setProjectData(data);
     };
 
@@ -30,28 +31,19 @@ export default function CaseStudyAboutSection({ title, slug }) {
   useEffect(() => {
     if (!projectData) return;
 
-    // Temporarily disable animation for debugging
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            console.log('Element is intersecting:', entry.target);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.5 }
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo(titleRef.current,
+      { y: -50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.5, ease: 'power2.out' }
+    )
+    .fromTo(featureRefs.current,
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.5, ease: 'power2.out', stagger: 0.3 },
+      '-=1'
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
-    };
+    tl.play();
   }, [projectData]);
 
   if (!projectData) {
@@ -60,7 +52,7 @@ export default function CaseStudyAboutSection({ title, slug }) {
 
   const renderFeatureContent = (feature) => {
     const featureData = projectData[feature.name.toLowerCase()];
-    console.log(`Rendering content for feature: ${feature.name}`, featureData); // Added logging
+    console.log(`Rendering content for feature: ${feature.name}`, featureData);
 
     if (!featureData) {
       return <div>No data available</div>;
@@ -79,7 +71,6 @@ export default function CaseStudyAboutSection({ title, slug }) {
     }
 
     if (typeof featureData === 'string') {
-      // Split the string by double line breaks to create paragraphs
       const paragraphs = featureData.split('\n\n').map((para, index) => (
         <p key={index} className="mb-4">{para}</p>
       ));
