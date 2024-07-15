@@ -48,7 +48,7 @@ export default function AboutSection() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     );
 
     if (container) {
@@ -80,7 +80,6 @@ export default function AboutSection() {
       { threshold: 0.1 }
     );
 
-    // Capture the current value of featureRefs.current
     const currentFeatureRefs = featureRefs.current;
 
     currentFeatureRefs.forEach((featureElement) => {
@@ -91,7 +90,6 @@ export default function AboutSection() {
     });
 
     return () => {
-      // Use the captured value in the cleanup function
       currentFeatureRefs.forEach((featureElement) => {
         if (featureElement) {
           featureObserver.unobserve(featureElement);
