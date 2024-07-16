@@ -3,11 +3,11 @@ import { CursorArrowRaysIcon, BoltIcon, FunnelIcon, CubeIcon } from '@heroicons/
 import gsap from 'gsap';
 
 const features = [
-  {
-    name: 'Product Strategy',
-    description: 'Define and implement product strategies that align with business goals. Conduct market research, identify user needs, and prioritize features to ensure product success.',
-    icon: CubeIcon,
-  },
+  // {
+  //   name: 'Product Strategy',
+  //   description: 'Define and implement product strategies that align with business goals. Conduct market research, identify user needs, and prioritize features to ensure product success.',
+  //   icon: CubeIcon,
+  // },
   {
     name: 'Product Design and Prototyping',
     description: 'Transform ideas into high-fidelity prototypes using Figma and other design tools. Develop user-friendly interfaces that drive engagement and meet business goals.',
@@ -18,11 +18,11 @@ const features = [
     description: 'Build responsive and performant web applications with React, Next.js, and TailwindCSS. Write clean, maintainable code and bring designs to life with precision.',
     icon: CursorArrowRaysIcon,
   },
-  {
-    name: 'Full-Stack Integration',
-    description: 'Leverage full-stack development skills to integrate front-end and back-end systems. Utilize Express.js, MongoDB, and Node.js to build robust, scalable applications.',
-    icon: FunnelIcon,
-  },
+  // {
+  //   name: 'Full-Stack Integration',
+  //   description: 'Leverage full-stack development skills to integrate front-end and back-end systems. Utilize Express.js, MongoDB, and Node.js to build robust, scalable applications.',
+  //   icon: FunnelIcon,
+  // },
 ];
 
 export default function AboutSection() {

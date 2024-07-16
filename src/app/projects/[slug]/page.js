@@ -36,7 +36,7 @@ export default async function ProjectPage({ params }) {
     notFound();
   }
 
-  const { title, description, image, tags, video } = project.fields;
+  const { title, description, image, tags, video, carouselImage } = project.fields;
 
   console.log('Project Fields:', project.fields); // Debugging line
   console.log('Slug from Params:', params.slug); // Debugging line
@@ -55,7 +55,9 @@ export default async function ProjectPage({ params }) {
         title={title}
         slug={params.slug} // Pass the slug from params
       />
-      <Carousel slug={params.slug} /> {/* Pass the slug to Carousel */}
+      {carouselImage && carouselImage.length > 0 && (
+        <Carousel slug={params.slug} /> // Pass the slug to Carousel
+      )}
       {/* <Testamonial /> */}
       <Cta />
       <Footer />

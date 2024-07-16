@@ -23,6 +23,10 @@ const Carousel = ({ slug }) => {
     getImages();
   }, [slug]);
 
+  if (images.length === 0) {
+    return null; // No images to display
+  }
+
   const handlePrev = () => {
     const newIndex = (currentIndex - 1 + images.length) % images.length;
     setCurrentIndex(newIndex);
