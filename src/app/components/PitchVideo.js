@@ -82,7 +82,7 @@ export default function PitchVideo({ slug }) {
                     autoPlay
                     muted
                     controls
-                    className="shadow-2xl ring-1 ring-gray-900/10 w-full"
+                    className="shadow-2xl ring-1 ring-gray-900/10 w-full rounded-xl"
                   >
                     <source src={videoUrl} type="video/mp4" />
                     <source src={videoUrl.replace('.mp4', '.webm')} type="video/webm" />
