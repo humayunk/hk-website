@@ -76,7 +76,7 @@ export default function CaseStudyHeroSection({ title, description, image, video,
               </div>
             </div>
             <div className="mt-16 flow-root sm:mt-24 ">
-              <div className="-m-2" ref={videoRef}>
+              <div className="-m-2" ref={videoRef} style={{ backgroundColor: '#DAC8FF' }}>
                 {isVideoVisible && video ? (
                   <video
                     loop
