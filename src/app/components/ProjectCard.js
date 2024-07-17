@@ -9,7 +9,7 @@ export default function ProjectCard({ title, description, image, tags, slug }) {
   return (
     <Link href={`/projects/${slug}`}>
       <div
-        className="relative block bg-white text-white shadow-md overflow-hidden border-4 border-black transition-shadow duration-300 ease-in-out hover:shadow-solid-s"
+        className="relative block bg-white text-white shadow-md overflow-hidden border-4 border-black transition-shadow duration-300 ease-in-out hover:shadow-solid-s rounded-2xl"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -32,7 +32,7 @@ export default function ProjectCard({ title, description, image, tags, slug }) {
         <div className="p-4 border-t-4 border-black">
           <div className="flex flex-wrap space-x-2 mb-2 ">
             {tags.map((tag) => (
-              <span key={tag} className="bg-black text-xs font-semibold px-2 py-1">
+              <span key={tag} className="bg-black text-xs font-semibold px-2 py-1 rounded-lg">
                 {tag}
               </span>
             ))}

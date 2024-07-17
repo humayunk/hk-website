@@ -69,13 +69,13 @@ export default function CaseStudyHeroSection({ title, description, image, video,
               </p>
               <div ref={tagsRef} className="mt-10 flex items-center justify-center gap-x-6">
                 {tags.map(tag => (
-                  <span key={tag} className="bg-black text-white px-3 py-1">
+                  <span key={tag} className="bg-black text-white px-3 py-1 rounded-lg">
                     {tag}
                   </span>
                 ))}
               </div>
             </div>
-            <div className="mt-16 flow-root sm:mt-24">
+            <div className="mt-16 flow-root sm:mt-24 ">
               <div className="-m-2" ref={videoRef}>
                 {isVideoVisible && video ? (
                   <video
@@ -83,7 +83,7 @@ export default function CaseStudyHeroSection({ title, description, image, video,
                     autoPlay
                     muted
                     controls
-                    className="shadow-2xl ring-1 ring-gray-900/10 w-full"
+                    className="shadow-2xl ring-1 ring-gray-900/10 w-full rounded-lg"
                   >
                     <source src={video} type="video/mp4" />
                     <source src={video.replace('.mp4', '.webm')} type="video/webm" />
@@ -93,7 +93,7 @@ export default function CaseStudyHeroSection({ title, description, image, video,
                   <Image
                     alt="App screenshot"
                     src={formattedImage}
-                    className="shadow-2xl ring-1 ring-gray-900/10"
+                    className="shadow-2xl ring-1 ring-gray-900/10 rounded-xl"
                     layout="responsive"
                     width={700}
                     height={475}

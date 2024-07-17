@@ -118,7 +118,7 @@ export default function AboutSection() {
                 className="relative pl-16"
               >
                 <dt className="text-base font-semibold leading-7 text-gray-900 font-mono">
-                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center bg-black">
+                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center bg-black rounded-full">
                     <feature.icon aria-hidden="true" className="h-6 w-6 text-white" />
                   </div>
                   {feature.name}
