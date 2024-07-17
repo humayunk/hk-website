@@ -17,6 +17,51 @@ export const fetchEntries = async (contentType) => {
   }
 };
 
+export async function fetchPitchData(slug) {
+  try {
+    console.log('Fetching pitch data for slug:', slug); // Debug log
+    const entries = await client.getEntries({
+      content_type: 'pitch',
+      'fields.slug[in]': slug,
+    });
+
+    console.log('Fetched pitch data:', entries); // Debug log
+
+    if (!entries.items.length) {
+      return null;
+    }
+
+    const item = entries.items[0];
+
+    const videoUrl = item.fields.video
+      ? item.fields.video.fields.file.url.startsWith('//')
+        ? `https:${item.fields.video.fields.file.url}`
+        : item.fields.video.fields.file.url
+      : null;
+
+    const logoUrl = item.fields.logo
+      ? item.fields.logo.fields.file.url.startsWith('//')
+        ? `https:${item.fields.logo.fields.file.url}`
+        : item.fields.logo.fields.file.url
+      : null;
+
+    console.log('Video URL:', videoUrl); // Debug log
+    console.log('Logo URL:', logoUrl); // Debug log
+
+    return {
+      company: item.fields.company,
+      person: item.fields.person,
+      job: item.fields.job,
+      logo: logoUrl,
+      slug: item.fields.slug,
+      video: videoUrl,
+    };
+  } catch (error) {
+    console.error('Error fetching pitch data:', error);
+    throw error;
+  }
+}
+
 export async function fetchProjectData(slug) {
   try {
     console.log('Fetching project data for slug:', slug); // Debug log
