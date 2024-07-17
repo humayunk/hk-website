@@ -8,7 +8,7 @@ export default function Example() {
   const headingRef = useRef(null);
   const textRef = useRef(null);
   const buttonRef = useRef(null);
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     const tl = gsap.timeline({ paused: true });
 
@@ -63,7 +63,7 @@ export default function Example() {
             So, how about it?
           </h2>
           <p ref={textRef} className="mx-auto my-6 max-w-xl text-lg leading-8 text-gray-600">
-            Book a chat and let's see if we can build something worldclass together.
+            Book a chat and let&apos;s see if we can build something worldclass together.
           </p>
           <div ref={buttonRef}>
             <Button />

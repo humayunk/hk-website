@@ -33,7 +33,6 @@ export async function fetchPitchData(slug) {
 
     const item = entries.items[0];
 
-    // Construct the URL for the video and logo fields if they exist
     const videoUrl = item.fields.video
       ? item.fields.video.fields.file.url.startsWith('//')
         ? `https:${item.fields.video.fields.file.url}`
@@ -59,6 +58,44 @@ export async function fetchPitchData(slug) {
     };
   } catch (error) {
     console.error('Error fetching pitch data:', error);
+    throw error;
+  }
+}
+
+export async function fetchProjectData(slug) {
+  try {
+    console.log('Fetching project data for slug:', slug); // Debug log
+    const entries = await client.getEntries({
+      content_type: 'project',
+      'fields.slug[in]': slug,
+    });
+
+    console.log('Fetched project data:', entries); // Debug log
+
+    if (!entries.items.length) {
+      return null;
+    }
+
+    const item = entries.items[0];
+    const carouselImages = item.fields.carouselImage
+      ? item.fields.carouselImage.map(image => {
+          const url = image.fields.file.url;
+          return url.startsWith('//') ? `https:${url}` : url;
+        })
+      : [];
+    const video = item.fields.video
+      ? item.fields.video.fields.file.url.startsWith('//')
+        ? `https:${item.fields.video.fields.file.url}`
+        : item.fields.video.fields.file.url
+      : null;
+
+    return {
+      ...item.fields,
+      carouselImages,
+      video,
+    };
+  } catch (error) {
+    console.error('Error fetching project data:', error);
     throw error;
   }
 }
