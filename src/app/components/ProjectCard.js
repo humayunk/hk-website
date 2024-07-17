@@ -19,7 +19,11 @@ export default function ProjectCard({ title, description, image, tags, slug }) {
               src={image.startsWith('//') ? `https:${image}` : image}
               alt={title}
               layout="fill"
-              objectFit="contain" // or 'cover' based on your preference
+              objectFit="cover"
+              quality={100}
+              sizes="(max-width: 768px) 100vw,
+                     (max-width: 1200px) 50vw,
+                     33vw" // Responsive sizes for different screen widths
             />
             {isHovered && (
               <div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center transition-opacity duration-300 ease-in-out">
