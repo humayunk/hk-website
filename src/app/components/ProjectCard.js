@@ -1,18 +1,10 @@
 import Link from 'next/link';
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { EyeIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 
 export default function ProjectCard({ title, description, image, tags, slug }) {
   const [isHovered, setIsHovered] = useState(false);
-  const bgColor = useRef('');
-
-  useEffect(() => {
-    if (!bgColor.current) {
-      const colors = ['#DAC8FF']; // Add your desired colors here
-      bgColor.current = colors[Math.floor(Math.random() * colors.length)];
-    }
-  }, []);
 
   return (
     <Link href={`/projects/${slug}`}>
@@ -20,7 +12,7 @@ export default function ProjectCard({ title, description, image, tags, slug }) {
         className="relative block text-white shadow-md overflow-hidden border-4 border-black transition-shadow duration-300 ease-in-out hover:shadow-solid-s rounded-2xl"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        style={{ backgroundColor: bgColor.current }}
+        style={{ backgroundColor: '#DAC8FF' }}
       >
         <div className="relative w-full h-64 flex items-center justify-center">
           <div className="relative w-3/4 h-64">
