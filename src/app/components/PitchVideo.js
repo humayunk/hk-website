@@ -67,7 +67,7 @@ export default function PitchVideo({ slug }) {
         <div className="py-24 sm:py-32 lg:pb-40">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-              <h1 ref={titleRef} className="text-3xl font-bold tracking-tight text-gray-900 sm:text-6xl font-mono">
+              <h1 ref={titleRef} className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-mono">
                 Why me?
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -82,7 +82,7 @@ export default function PitchVideo({ slug }) {
                     autoPlay
                     muted
                     controls
-                    className="shadow-2xl ring-1 ring-gray-900/10 w-full rounded-xl"
+                    className="shadow-2xl ring-1 ring-gray-900/10 w-full rounded-xl shadow-solid-s border-4 border-black"
                   >
                     <source src={videoUrl} type="video/mp4" />
                     <source src={videoUrl.replace('.mp4', '.webm')} type="video/webm" />
