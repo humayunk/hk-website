@@ -55,7 +55,7 @@ export default function Example() {
           <div className="lg:pr-4">
             <div
               ref={imageRef}
-              className="relative overflow-hidden rounded-3xl bg-gray-900 px-6 pb-9 pt-[calc(100%-120px)] shadow-2xl sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10"
+              className="relative overflow-hidden rounded-3xl bg-gray-900 px-6 pb-9 pt-[calc(100%-120px)] border-4 border-black shadow-solid-s sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10"
             >
               <img
                 alt="Profile"
@@ -78,7 +78,7 @@ export default function Example() {
                   I&apos;ve been designing interfaces and experiences for a long time, which is why a few months ago I finally rolled up my sleeves and decided to ask, what if I could build them too? In code. Nine weeks and a full-stack web development bootcamp under my belt, here I am.
                 </p>
                 <p className="mt-8">
-                  I&apos;m cognizant that the title Design Engineer is relatively new, but it feels pretty awesome to come up with sketches, mock up something rough in Figma, and start building out components and laying them out in VSCode. Excited for the next decade ahead. Now, let&apos;s build something awesome together.
+                  I&apos;m cognizant that the title Design Engineer is relatively new, but it feels pretty awesome to come up with sketches, mock up something rough in Figma, and start building out components and laying them out in VSCode. Excited for the next decade ahead.
                 </p>
               </div>
             </div>
