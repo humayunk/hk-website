@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import ProjectCard from './ProjectCard';
 import { fetchEntries } from '../lib/contentful';
@@ -42,10 +43,10 @@ export default function WorkSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center pb-16">
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-mono">
-            The Proof is in the Pudding
+            Selected Work
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Whatever that means. Here are some projects. I collaborate with companies of all sizes. Sometimes I ship my own ideas too. Mostly, I like building s@*!.
+           A selection of past project work and personal side projects that I can talk about. Unfortunately, in some cases, the content must be redacted due to its sensitive nature. But happy to share specifics where desired.
           </p>
         </div>
 

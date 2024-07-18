@@ -9,8 +9,10 @@ import HeroSectionAlt from './components/HeroSectionAlt';
 import LogoClouds from './components/LogoClouds';
 import AboutSection from './components/AboutSection';
 import WorkSection from './components/WorkSection';
-import Footer from './components/Footer';
+import BioSection from './components/BioSection';
 import Cta from './components/Cta';
+import Footer from './components/Footer';
+
 
 export default function Home() {
   const [projects, setProjects] = useState([]);
@@ -28,6 +30,7 @@ export default function Home() {
       <LogoClouds />
       <WorkSection projects={projects} />
       <AboutSection />
+      <BioSection />
       <Cta />
       <Footer />
     </>
