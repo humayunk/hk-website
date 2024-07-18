@@ -59,11 +59,11 @@ export default function Example() {
     <div ref={containerRef} className="bg-white">
       <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 ref={headingRef} className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-mono">
+          <h2 ref={headingRef} className="text-3xl font-bold tracking-tight text-black sm:text-4xl font-mono">
             Have a project? Let&apos;s talk.
           </h2>
           <p ref={textRef} className="mx-auto my-6 max-w-xl text-lg leading-8 text-gray-600">
-            I&apos;m currently available for full-time and contract work. Say hello and I&apos;ll get back to you within 24 hours.
+             Let&apos;s see if we can build something world-class together. Or just have a really awesome conversation.
           </p>
           <div ref={buttonRef}>
             <Button />

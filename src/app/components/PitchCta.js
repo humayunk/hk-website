@@ -60,10 +60,10 @@ export default function Example() {
       <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 ref={headingRef} className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-mono">
-            So, how about it?
+            So, what do you think?
           </h2>
           <p ref={textRef} className="mx-auto my-6 max-w-xl text-lg leading-8 text-gray-600">
-            Book a chat and let&apos;s see if we can build something worldclass together.
+            Book a chat and let&apos;s see if we can build something world-class together. Or just have a really awesome conversation.
           </p>
           <div ref={buttonRef}>
             <Button />
