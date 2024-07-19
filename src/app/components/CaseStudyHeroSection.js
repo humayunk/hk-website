@@ -59,7 +59,7 @@ export default function CaseStudyHeroSection({ title, description, image, video,
     <div className="bg-white">
       <div className="relative isolate pt-14">
         <div className="py-24 sm:py-32 lg:pb-40">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
             <div className="mx-auto max-w-2xl text-center">
               <h1 ref={titleRef} className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl font-mono">
                 {title}
@@ -76,31 +76,33 @@ export default function CaseStudyHeroSection({ title, description, image, video,
               </div>
             </div>
             <div className="mt-16 flow-root sm:mt-24">
-              <div className="-m-2 rounded-lg border-4 border-black shadow-solid-s" ref={videoRef}>
-                {isVideoVisible && video ? (
-                  <video
-                    loop
-                    autoPlay
-                    muted
-                    controls
-                    className="shadow-2xl ring-1 ring-gray-900/10 w-full rounded-lg"
-                  >
-                    <source src={video} type="video/mp4" />
-                    <source src={video.replace('.mp4', '.webm')} type="video/webm" />
-                    Your browser does not support the video tag.
-                  </video>
-                ) : (
-                  formattedImage && (
-                    <Image
-                      alt="App screenshot"
-                      src={formattedImage}
-                      className="shadow-2xl ring-1 ring-gray-900/10 rounded-xl w-full h-full object-cover"
-                      layout="responsive"
-                      width={700}
-                      height={475}
-                    />
-                  )
-                )}
+              <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="rounded-lg border-4 border-black shadow-solid-s overflow-hidden" ref={videoRef}>
+                  {isVideoVisible && video ? (
+                    <video
+                      loop
+                      autoPlay
+                      muted
+                      controls
+                      className="shadow-2xl ring-1 ring-gray-900/10 w-full"
+                    >
+                      <source src={video} type="video/mp4" />
+                      <source src={video.replace('.mp4', '.webm')} type="video/webm" />
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : (
+                    formattedImage && (
+                      <Image
+                        alt="App screenshot"
+                        src={formattedImage}
+                        className="shadow-2xl ring-1 ring-gray-900/10 w-full h-full object-cover"
+                        layout="responsive"
+                        width={700}
+                        height={475}
+                      />
+                    )
+                  )}
+                </div>
               </div>
             </div>
           </div>
