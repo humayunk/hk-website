@@ -67,18 +67,18 @@ export default function Example() {
           </div>
           <div ref={textRef}>
             <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
-              <h1 className="mt-2 text-3xl font-mono font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h1 className=" text-3xl font-mono font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Thanks for stopping by.
               </h1>
               <div className="max-w-xl">
                 <p className="mt-6">
-                  You&apos;re probably wondering, who is this guy? I thought you&apos;d never ask. I&apos;ve been in the tech industry for over a decade. For the last ~4 years, I&apos;ve been primarily helping clients ranging from international giants like Yara International to YC-backed companies like RuthHealth build better products.
+                  You&apos;re probably wondering, who is this guy? I thought you&apos;d never ask. I&apos;ve been in the tech industry for over a decade but for the last ~4 years, I&apos;ve been primarily consulting and helping clients ranging from international giants like Yara International to YC-backed companies like RuthHealth design better products.
                 </p>
                 <p className="mt-8">
-                  I&apos;ve been designing interfaces and experiences for a long time, which is why a few months ago I finally rolled up my sleeves and decided to ask, what if I could build them too? In code. Nine weeks and a full-stack web development bootcamp under my belt, here I am.
+                  After unsuccesfully trying to teach myself to code, a few months ago I finally rolled up my sleeves and decided to enroll in a nine week full-stack web development bootcamp. It wasn&apos;t easy and it felt like drinking out of a fire hydrant each day but I now have a firm grasp of how web apps and pages are built and structured.
                 </p>
                 <p className="mt-8">
-                  I&apos;m cognizant that the title Design Engineer is relatively new, but it feels pretty awesome to come up with sketches, mock up something rough in Figma, and start building out components and laying them out in the browser. Excited for the next decade ahead.
+                As a hybrid Designer &amp; Front-End Developer, I thrive on bringing ideas to life in the browser. I&apos;m energized by the evolving landscape of web development and the opportunity to craft increasingly functional and engaging digital experiences.
                 </p>
               </div>
             </div>
