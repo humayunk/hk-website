@@ -75,8 +75,8 @@ export default function CaseStudyHeroSection({ title, description, image, video,
                 ))}
               </div>
             </div>
-            <div className="mt-16 flow-root sm:mt-24 ">
-              <div className="-m-2" ref={videoRef} style={{ backgroundColor: '#DAC8FF' }}>
+            <div className="mt-16 flow-root sm:mt-24">
+              <div className="-m-2 rounded-lg border-4 border-black shadow-solid-s" ref={videoRef}>
                 {isVideoVisible && video ? (
                   <video
                     loop
@@ -94,7 +94,7 @@ export default function CaseStudyHeroSection({ title, description, image, video,
                     <Image
                       alt="App screenshot"
                       src={formattedImage}
-                      className="shadow-2xl ring-1 ring-gray-900/10 rounded-xl"
+                      className="shadow-2xl ring-1 ring-gray-900/10 rounded-xl w-full h-full object-cover"
                       layout="responsive"
                       width={700}
                       height={475}
