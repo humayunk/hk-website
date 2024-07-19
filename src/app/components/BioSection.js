@@ -78,7 +78,7 @@ export default function Example() {
                   I&apos;ve been designing interfaces and experiences for a long time, which is why a few months ago I finally rolled up my sleeves and decided to ask, what if I could build them too? In code. Nine weeks and a full-stack web development bootcamp under my belt, here I am.
                 </p>
                 <p className="mt-8">
-                  I&apos;m cognizant that the title Design Engineer is relatively new, but it feels pretty awesome to come up with sketches, mock up something rough in Figma, and start building out components and laying them out in VSCode. Excited for the next decade ahead.
+                  I&apos;m cognizant that the title Design Engineer is relatively new, but it feels pretty awesome to come up with sketches, mock up something rough in Figma, and start building out components and laying them out in the browser. Excited for the next decade ahead.
                 </p>
               </div>
             </div>
