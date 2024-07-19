@@ -10,21 +10,33 @@ export default function WorkSection() {
   useEffect(() => {
     async function getProjects() {
       try {
+        console.log('Fetching projects...');
         const entries = await fetchEntries('project');
-        setProjects(
-          entries.map(entry => {
-            const project = entry.fields;
-            // Ensure the image URL is absolute
-            if (project.image && project.image.fields.file.url.startsWith('//')) {
-              project.image.fields.file.url = `https:${project.image.fields.file.url}`;
-            }
-            // Ensure the video URL is absolute
-            if (project.video && project.video.fields.file.url.startsWith('//')) {
-              project.video.fields.file.url = `https:${project.video.fields.file.url}`;
-            }
-            return project;
-          })
-        );
+        console.log('Fetched entries:', entries);
+
+        const processedProjects = entries.map(entry => {
+          const project = entry.fields;
+          console.log('Processing project:', project);
+
+          // Ensure the image URL is absolute
+          if (project.image && project.image.fields && project.image.fields.file && project.image.fields.file.url.startsWith('//')) {
+            project.image.fields.file.url = `https:${project.image.fields.file.url}`;
+          }
+          // Ensure the cardImage URL is absolute
+          if (project.cardImage && typeof project.cardImage === 'string' && project.cardImage.startsWith('//')) {
+            project.cardImage = `https:${project.cardImage}`;
+          }
+          // Ensure the video URL is absolute
+          if (project.video && project.video.fields && project.video.fields.file && project.video.fields.file.url.startsWith('//')) {
+            project.video.fields.file.url = `https:${project.video.fields.file.url}`;
+          }
+
+          console.log('Processed project:', project);
+          return project;
+        });
+
+        console.log('Setting projects:', processedProjects);
+        setProjects(processedProjects);
       } catch (error) {
         console.error('Error fetching projects data:', error);
         setError('Failed to load projects.');
@@ -56,7 +68,8 @@ export default function WorkSection() {
               key={index}
               title={project.title}
               description={project.description}
-              image={project.image ? project.image.fields.file.url : ''}
+              cardImage={project.cardImage && project.cardImage.fields ? project.cardImage.fields.file.url : null}
+              image={project.image ? project.image.fields.file.url : null}  // And this line
               video={project.video ? project.video.fields.file.url : null}
               tags={project.tags || []}
               slug={project.slug}

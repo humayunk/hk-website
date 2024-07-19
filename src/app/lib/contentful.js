@@ -1,7 +1,5 @@
 import { createClient } from 'contentful';
-
-console.log('Contentful Space ID:', process.env.CONTENTFUL_SPACE_ID); // Debug log
-console.log('Contentful Access Token:', process.env.CONTENTFUL_ACCESS_TOKEN); // Debug log
+// Debug log
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -10,12 +8,16 @@ const client = createClient({
 
 export const fetchEntries = async (contentType) => {
   try {
-    console.log('Fetching entries for content type:', contentType); // Debug log
+    console.log(`Fetching entries for content type: ${contentType}`);
     const entries = await client.getEntries({ content_type: contentType });
-    console.log('Fetched entries:', entries); // Debug log
+    console.log(`Successfully fetched ${entries.items.length} entries`);
     return entries.items;
   } catch (error) {
-    console.error('Error fetching entries:', error);
+    console.error('Error in fetchEntries:', error);
+    if (error.response) {
+      console.error('Error response:', error.response.data);
+      console.error('Error status:', error.response.status);
+    }
     throw error;
   }
 };
@@ -80,22 +82,39 @@ export async function fetchProjectData(slug) {
     }
 
     const item = entries.items[0];
+    console.log('Project item fields:', item.fields); // Debug log
+
     const carouselImages = item.fields.carouselImage
       ? item.fields.carouselImage.map(image => {
           const url = image.fields.file.url;
           return url.startsWith('//') ? `https:${url}` : url;
         })
       : [];
+
     const video = item.fields.video
       ? item.fields.video.fields.file.url.startsWith('//')
         ? `https:${item.fields.video.fields.file.url}`
         : item.fields.video.fields.file.url
       : null;
 
+    const cardImage = item.fields.cardImage && item.fields.cardImage.fields && item.fields.cardImage.fields.file
+    ? item.fields.cardImage.fields.file.url.startsWith('//')
+      ? `https:${item.fields.cardImage.fields.file.url}`
+      : item.fields.cardImage.fields.file.url
+    : null;
+
+    const image = item.fields.image
+      ? item.fields.image.fields.file.url.startsWith('//')
+        ? `https:${item.fields.image.fields.file.url}`
+        : item.fields.image.fields.file.url
+      : null;
+
     return {
       ...item.fields,
       carouselImages,
       video,
+      cardImage,
+      image,
     };
   } catch (error) {
     console.error('Error fetching project data:', error);

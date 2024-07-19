@@ -53,7 +53,7 @@ export default function CaseStudyHeroSection({ title, description, image, video,
     );
   }, []);
 
-  const formattedImage = image.startsWith('//') ? `https:${image}` : image;
+  const formattedImage = image && typeof image === 'string' && image.startsWith('//') ? `https:${image}` : image;
 
   return (
     <div className="bg-white">
@@ -90,14 +90,16 @@ export default function CaseStudyHeroSection({ title, description, image, video,
                     Your browser does not support the video tag.
                   </video>
                 ) : (
-                  <Image
-                    alt="App screenshot"
-                    src={formattedImage}
-                    className="shadow-2xl ring-1 ring-gray-900/10 rounded-xl"
-                    layout="responsive"
-                    width={700}
-                    height={475}
-                  />
+                  formattedImage && (
+                    <Image
+                      alt="App screenshot"
+                      src={formattedImage}
+                      className="shadow-2xl ring-1 ring-gray-900/10 rounded-xl"
+                      layout="responsive"
+                      width={700}
+                      height={475}
+                    />
+                  )
                 )}
               </div>
             </div>

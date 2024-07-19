@@ -1,10 +1,15 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { EyeIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 
-export default function ProjectCard({ title, description, image, tags, slug }) {
+export default function ProjectCard({ title, description, cardImage, image, tags, slug }) {
   const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    console.log(`Title: ${title}`);
+    console.log(`cardImage:`, cardImage);
+  }, [cardImage, title]);
 
   return (
     <Link href={`/projects/${slug}`}>
@@ -15,18 +20,22 @@ export default function ProjectCard({ title, description, image, tags, slug }) {
         style={{ backgroundColor: '#DAC8FF' }}
       >
         <div className="relative w-full h-64 flex items-center justify-center">
-          <div className="relative w-3/4 h-64">
+          <div className="relative w-full h-64">
+          {cardImage && typeof cardImage === 'string' ? (
             <Image
-              src={image.startsWith('//') ? `https:${image}` : image}
+              src={cardImage.startsWith('//') ? `https:${cardImage}` : cardImage}
               alt={title}
-              layout="fill"
-              objectFit="contain"
-              quality={100} // Ensures the highest image quality
-              sizes="(max-width: 768px) 100vw,
-                     (max-width: 1200px) 50vw,
-                     33vw" // Responsive sizes for different screen widths
-              priority // Ensures image loads faster
+              fill
+              style={{ objectFit: 'cover' }}
+              quality={100}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority
             />
+          ) : (
+            <div className="flex items-center justify-center w-full h-full bg-gray-200">
+              <span>No Image Available</span>
+            </div>
+          )}
           </div>
           {isHovered && (
             <div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center transition-opacity duration-300 ease-in-out">
