@@ -1,28 +1,28 @@
 import React, { useEffect, useRef } from 'react';
-import { CursorArrowRaysIcon, BoltIcon, FunnelIcon, CubeIcon } from '@heroicons/react/24/outline';
+import { CursorArrowRaysIcon, CodeBracketIcon, PuzzlePieceIcon, PaintBrushIcon } from '@heroicons/react/24/outline';
 import gsap from 'gsap';
 
 const features = [
-  // {
-  //   name: 'Product Strategy',
-  //   description: 'Define and implement product strategies that align with business goals. Conduct market research, identify user needs, and prioritize features to ensure product success.',
-  //   icon: CubeIcon,
-  // },
   {
-    name: 'Product Design and Prototyping',
-    description: 'Transform ideas into high-fidelity prototypes using Figma and other design tools. Develop user-friendly interfaces that drive engagement and meet business goals.',
-    icon: BoltIcon,
+    name: 'HTML, CSS, JavaScript (ES6)',
+    description: 'Crafting elegant, accessible, and responsive web experiences using the core web technologies. From building semantic HTML structures to styling with modern CSS and bringing it all to life with ES6 JavaScript.',
+    icon: CodeBracketIcon,
   },
   {
-    name: 'Front-End Development',
-    description: 'Build responsive and performant web applications with React, Next.js, and TailwindCSS. Write clean, maintainable code and bring designs to life with precision.',
+    name: 'Frameworks and Libraries',
+    description: 'Leveraging powerful tools like Next.js and React to build scalable web applications. Designing beautiful interfaces with TailwindCSS and adding motion magic with GSAP.',
     icon: CursorArrowRaysIcon,
   },
-  // {
-  //   name: 'Full-Stack Integration',
-  //   description: 'Leverage full-stack development skills to integrate front-end and back-end systems. Utilize Express.js, MongoDB, and Node.js to build robust, scalable applications.',
-  //   icon: FunnelIcon,
-  // },
+  {
+    name: 'CMS Integration',
+    description: 'Seamlessly integrating Contentful and other CMS platforms to create dynamic, content-driven websites that are easy to manage and update.',
+    icon: PuzzlePieceIcon,
+  },
+  {
+    name: 'Creative Coding',
+    description: 'Exploring the creative side of coding with Three.js, p5.js, and Canvas to create interactive, visually stunning web experiences.',
+    icon: PaintBrushIcon,
+  },
 ];
 
 export default function AboutSection() {
@@ -106,7 +106,7 @@ export default function AboutSection() {
             What I Do
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Supercharge your growth team with a versatile expert who excels at creating high-quality, user-centered products from concept to production.
+            Supercharge your team with a versatile expert who excels at creating high-quality, user-centered experiences from concept to production.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
