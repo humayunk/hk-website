@@ -75,7 +75,7 @@ export default function Example() {
                   You&apos;re probably wondering, who is this guy? I thought you&apos;d never ask. I&apos;ve been in the tech industry for over a decade but for the last ~4 years, I&apos;ve been primarily consulting and helping clients ranging from international giants like Yara International to YC-backed companies like RuthHealth design better products.
                 </p>
                 <p className="mt-8">
-                  After unsuccesfully trying to teach myself to code, a few months ago I finally rolled up my sleeves and decided to enroll in a nine week full-stack web development bootcamp. It wasn&apos;t easy and it felt like drinking out of a fire hydrant each day but I now have a firm grasp of how web apps and pages are built and structured.
+                  After struggling to teach myself to code, a few months ago I finally rolled up my sleeves and decided to enroll in a nine week full-stack web development bootcamp. It wasn&apos;t easy and it felt like drinking out of a fire hydrant each day but I now have a firm grasp of how web apps and pages are built and structured.
                 </p>
                 <p className="mt-8">
                 As a hybrid Designer &amp; Front-End Developer, I thrive on bringing ideas to life in the browser. I&apos;m energized by the evolving landscape of web development and the opportunity to craft increasingly functional and engaging digital experiences.
