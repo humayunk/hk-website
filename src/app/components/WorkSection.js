@@ -23,8 +23,8 @@ export default function WorkSection() {
             project.image.fields.file.url = `https:${project.image.fields.file.url}`;
           }
           // Ensure the cardImage URL is absolute
-          if (project.cardImage && typeof project.cardImage === 'string' && project.cardImage.startsWith('//')) {
-            project.cardImage = `https:${project.cardImage}`;
+          if (project.cardImage && project.cardImage.fields && project.cardImage.fields.file && project.cardImage.fields.file.url.startsWith('//')) {
+            project.cardImage.fields.file.url = `https:${project.cardImage.fields.file.url}`;
           }
           // Ensure the video URL is absolute
           if (project.video && project.video.fields && project.video.fields.file && project.video.fields.file.url.startsWith('//')) {

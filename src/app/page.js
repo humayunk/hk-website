@@ -1,27 +1,33 @@
-// src/app/page.js
-
 'use client';
 
 import { useEffect, useState } from 'react';
-import ProjectCard from './components/ProjectCard';
-import HeroSection from './components/HeroSection';
 import HeroSectionAlt from './components/HeroSectionAlt';
 import LogoClouds from './components/LogoClouds';
 import AboutSection from './components/AboutSection';
 import WorkSection from './components/WorkSection';
 import BioSection from './components/BioSection';
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import Cta from './components/Cta';
 import Footer from './components/Footer';
+import { fetchEntries } from './lib/contentful';
 
+const BlogCards = dynamic(() => import('./components/BlogCards'), { ssr: false });
 
 export default function Home() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    fetch('/data/projects.json')
-      .then((response) => response.json())
-      .then((data) => setProjects(data))
-      .catch((error) => console.error('Error fetching projects data:', error));
+    async function loadProjects() {
+      try {
+        const fetchedProjects = await fetchEntries('project');
+        setProjects(fetchedProjects);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      }
+    }
+
+    loadProjects();
   }, []);
 
   return (
@@ -30,6 +36,9 @@ export default function Home() {
       <LogoClouds />
       <WorkSection projects={projects} />
       <AboutSection />
+      <Suspense fallback={<div>Loading blog posts...</div>}>
+        <BlogCards />
+      </Suspense>
       <BioSection />
       <Cta />
       <Footer />
