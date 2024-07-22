@@ -51,13 +51,13 @@ export default function ProjectCard({ title, description, cardImage, video, vide
               </div>
             )}
           </div>
+          {isHovered && (
+            <div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center transition-opacity duration-300 ease-in-out">
+              <EyeIcon className="h-1/6 w-1/6 mb-2" />
+              <p className="text-white text-lg font-mono">View Project</p>
+            </div>
+          )}
         </div>
-        {isHovered && (
-          <div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center transition-opacity duration-300 ease-in-out">
-            <EyeIcon className="h-1/6 w-1/6 mb-2" />
-            <p className="text-white text-lg font-mono">View Project</p>
-          </div>
-        )}
         <div className="p-4 border-t-4 border-black bg-white">
           <div className="flex flex-wrap space-x-2 mb-2 ">
             {tags.map((tag) => (
