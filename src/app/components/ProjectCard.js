@@ -31,7 +31,9 @@ export default function ProjectCard({ title, description, cardImage, video, vide
                 autoPlay
                 playsInline
                 preload="auto"
-                onCanPlay={(e) => e.target.play().catch(error => console.log("Autoplay was prevented"))}
+                onCanPlay={(e) => {
+                  e.target.play().catch(error => console.log("Autoplay was prevented"));
+                }}
               />
             ) : cardImage && typeof cardImage === 'string' ? (
               <Image
