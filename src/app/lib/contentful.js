@@ -129,22 +129,10 @@ export async function fetchBlogPosts() {
     };
 
     return entries.items.map(item => {
-      let excerpt = 'No excerpt available';
-      if (item.fields.content) {
-        if (typeof item.fields.content === 'string') {
-          excerpt = item.fields.content.substring(0, 150) + '...';
-        } else if (item.fields.content.content && item.fields.content.content[0]) {
-          const firstTextBlock = item.fields.content.content.find(block => block.nodeType === 'paragraph');
-          if (firstTextBlock && firstTextBlock.content[0]) {
-            excerpt = firstTextBlock.content[0].value.substring(0, 150) + '...';
-          }
-        }
-      }
-
       return {
         title: item.fields.title,
         slug: item.fields.slug,
-        excerpt: excerpt,
+        blurb: item.fields.blurb || 'No blurb available',
         publishDate: item.fields.publishDate,
         author: item.fields.author,
         tags: item.fields.tags || [],
@@ -175,6 +163,7 @@ export async function fetchBlogPost(slug) {
 
     return {
       title: item.fields.title,
+      blurb: item.fields.blurb,
       content: item.fields.content,
       publishDate: item.fields.publishDate,
       author: item.fields.author,
