@@ -58,19 +58,19 @@ export default function WorkSection() {
             Selected Work
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-           A selection of past project work and personal side projects that I can talk about. Unfortunately, in some cases, the content must be redacted due to its sensitive nature. But happy to share specifics where desired.
+            As a designer turned developer, here are a few personal and professional projects I can publically talk about.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
               title={project.title}
               description={project.description}
               cardImage={project.cardImage && project.cardImage.fields ? project.cardImage.fields.file.url : null}
-              image={project.image ? project.image.fields.file.url : null}  // And this line
               video={project.video ? project.video.fields.file.url : null}
+              image={project.image ? project.image.fields.file.url : null}
               tags={project.tags || []}
               slug={project.slug}
             />
