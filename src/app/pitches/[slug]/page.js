@@ -8,6 +8,7 @@ import PitchVideo from '@/app/components/PitchVideo';
 import PitchCta from '@/app/components/PitchCta';
 import WorkSection from '@/app/components/WorkSection';
 import BioSection from '@/app/components/BioSection';
+import AboutSection from '@/app/components/AboutSection';
 
 export async function generateStaticParams() {
   const entries = await fetchEntries('pitch');
@@ -43,6 +44,7 @@ export default async function PitchPage({ params }) {
       <LogoCloud />
       {/* <PitchVideo slug={params.slug} /> */}
       <WorkSection />
+      <AboutSection />
       <BioSection />
       <PitchCta />
       <Footer />
