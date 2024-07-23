@@ -41,7 +41,7 @@ export default async function PitchPage({ params }) {
       <Header />
       <PitchHeroSection data={entry} />
       <LogoCloud />
-      <PitchVideo slug={params.slug} />
+      {/* <PitchVideo slug={params.slug} /> */}
       <WorkSection />
       <BioSection />
       <PitchCta />

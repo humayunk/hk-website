@@ -24,13 +24,13 @@ export const fetchEntries = async (contentType) => {
 
 export async function fetchPitchData(slug) {
   try {
-    console.log('Fetching pitch data for slug:', slug); // Debug log
+    console.log('Fetching pitch data for slug:', slug);
     const entries = await client.getEntries({
       content_type: 'pitch',
       'fields.slug[in]': slug,
     });
 
-    console.log('Fetched pitch data:', entries); // Debug log
+    console.log('Fetched pitch data:', entries);
 
     if (!entries.items.length) {
       return null;
@@ -38,20 +38,20 @@ export async function fetchPitchData(slug) {
 
     const item = entries.items[0];
 
+    const ensureAbsoluteUrl = (url) => {
+      return url.startsWith('//') ? `https:${url}` : url;
+    };
+
     const videoUrl = item.fields.video
-      ? item.fields.video.fields.file.url.startsWith('//')
-        ? `https:${item.fields.video.fields.file.url}`
-        : item.fields.video.fields.file.url
+      ? ensureAbsoluteUrl(item.fields.video.fields.file.url)
       : null;
 
     const logoUrl = item.fields.logo
-      ? item.fields.logo.fields.file.url.startsWith('//')
-        ? `https:${item.fields.logo.fields.file.url}`
-        : item.fields.logo.fields.file.url
+      ? ensureAbsoluteUrl(item.fields.logo.fields.file.url)
       : null;
 
-    console.log('Video URL:', videoUrl); // Debug log
-    console.log('Logo URL:', logoUrl); // Debug log
+    console.log('Video URL:', videoUrl);
+    console.log('Logo URL:', logoUrl);
 
     return {
       company: item.fields.company,
@@ -69,44 +69,39 @@ export async function fetchPitchData(slug) {
 
 export async function fetchProjectData(slug) {
   try {
-    console.log('Fetching project data for slug:', slug); // Debug log
+    console.log('Fetching project data for slug:', slug);
     const entries = await client.getEntries({
       content_type: 'project',
       'fields.slug[in]': slug,
     });
 
-    console.log('Fetched project data:', entries); // Debug log
+    console.log('Fetched project data:', entries);
 
     if (!entries.items.length) {
       return null;
     }
 
     const item = entries.items[0];
-    console.log('Project item fields:', item.fields); // Debug log
+    console.log('Project item fields:', item.fields);
+
+    const ensureAbsoluteUrl = (url) => {
+      return url.startsWith('//') ? `https:${url}` : url;
+    };
 
     const carouselImages = item.fields.carouselImage
-      ? item.fields.carouselImage.map(image => {
-          const url = image.fields.file.url;
-          return url.startsWith('//') ? `https:${url}` : url;
-        })
+      ? item.fields.carouselImage.map(image => ensureAbsoluteUrl(image.fields.file.url))
       : [];
 
     const video = item.fields.video
-      ? item.fields.video.fields.file.url.startsWith('//')
-        ? `https:${item.fields.video.fields.file.url}`
-        : item.fields.video.fields.file.url
+      ? ensureAbsoluteUrl(item.fields.video.fields.file.url)
       : null;
 
     const cardImage = item.fields.cardImage && item.fields.cardImage.fields && item.fields.cardImage.fields.file
-    ? item.fields.cardImage.fields.file.url.startsWith('//')
-      ? `https:${item.fields.cardImage.fields.file.url}`
-      : item.fields.cardImage.fields.file.url
-    : null;
+      ? ensureAbsoluteUrl(item.fields.cardImage.fields.file.url)
+      : null;
 
     const image = item.fields.image
-      ? item.fields.image.fields.file.url.startsWith('//')
-        ? `https:${item.fields.image.fields.file.url}`
-        : item.fields.image.fields.file.url
+      ? ensureAbsoluteUrl(item.fields.image.fields.file.url)
       : null;
 
     return {
@@ -118,6 +113,65 @@ export async function fetchProjectData(slug) {
     };
   } catch (error) {
     console.error('Error fetching project data:', error);
+    throw error;
+  }
+}
+
+export async function fetchBlogPosts() {
+  try {
+    const entries = await client.getEntries({
+      content_type: 'blogPost',
+      order: '-fields.publishDate',
+    });
+
+    const ensureAbsoluteUrl = (url) => {
+      return url && url.startsWith('//') ? `https:${url}` : url;
+    };
+
+    return entries.items.map(item => {
+      return {
+        title: item.fields.title,
+        slug: item.fields.slug,
+        blurb: item.fields.blurb || 'No blurb available',
+        publishDate: item.fields.publishDate,
+        author: item.fields.author,
+        tags: item.fields.tags || [],
+        featuredImage: ensureAbsoluteUrl(item.fields.featuredImage?.fields?.file?.url),
+      };
+    });
+  } catch (error) {
+    console.error('Error fetching blog posts:', error);
+    throw error;
+  }
+}
+
+export async function fetchBlogPost(slug) {
+  try {
+    const entries = await client.getEntries({
+      content_type: 'blogPost',
+      'fields.slug': slug,
+    });
+
+    if (!entries.items.length) {
+      return null;
+    }
+
+    const item = entries.items[0];
+    const ensureAbsoluteUrl = (url) => {
+      return url && url.startsWith('//') ? `https:${url}` : url;
+    };
+
+    return {
+      title: item.fields.title,
+      blurb: item.fields.blurb,
+      content: item.fields.content,
+      publishDate: item.fields.publishDate,
+      author: item.fields.author,
+      tags: item.fields.tags,
+      featuredImage: ensureAbsoluteUrl(item.fields.featuredImage?.fields?.file?.url),
+    };
+  } catch (error) {
+    console.error('Error fetching blog post:', error);
     throw error;
   }
 }
