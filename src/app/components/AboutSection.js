@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
 import { CursorArrowRaysIcon, CodeBracketIcon, PuzzlePieceIcon, PaintBrushIcon } from '@heroicons/react/24/outline';
 import gsap from 'gsap';
