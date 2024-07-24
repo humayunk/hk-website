@@ -103,7 +103,7 @@ export default function HeroSection() {
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-7xl font-mono gsap-header">
                   {/* The text will be animated here */}
                 </h1>
-                <p className="mt-6 text-lg leading-8 text-gray-600 font-sans">
+                <p className="mt-6 text-lg leading-8 text-gray-900 font-sans">
                   I&apos;m a Design Engineer who can help you conceptualize and ship your next critical product or growth project end-to-end.
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">

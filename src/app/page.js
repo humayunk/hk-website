@@ -11,6 +11,7 @@ import dynamic from 'next/dynamic';
 import Cta from './components/Cta';
 import Footer from './components/Footer';
 import { fetchEntries } from './lib/contentful';
+import AboutSectionDark from './components/AboutSectionDark';
 
 const BlogCards = dynamic(() => import('./components/BlogCards'), { ssr: false });
 
@@ -35,10 +36,10 @@ export default function Home() {
       <HeroSectionAlt />
       <LogoClouds />
       <WorkSection projects={projects} />
-      <AboutSection />
-      {/* <Suspense fallback={<div>Loading blog posts...</div>}>
+      <AboutSectionDark />
+      <Suspense fallback={<div>Loading blog posts...</div>}>
         <BlogCards />
-      </Suspense> */}
+      </Suspense>
       <BioSection />
       <Cta />
       <Footer />

@@ -89,7 +89,7 @@ export default function Footer() {
           <nav aria-label="Footer" className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12">
             {navigation.main.map((item) => (
               <div key={item.name} className="pb-6">
-                <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
+                <a href={item.href} className="text-sm leading-6 text-gray-900 hover:text-gray-900">
                   {item.name}
                 </a>
               </div>

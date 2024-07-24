@@ -9,7 +9,7 @@ export default function Button() {
     <div>
       <button
         onClick={openLink}
-        className="bg-violet-500 shadow-solid-s px-8 py-4 text-white font-mono transition duration-300 ease-in-out hover:shadow-solid-l rounded-full"
+        className="bg-black  px-8 py-4 text-white font-mono rounded-xl"
       >
         Book a chat
       </button>

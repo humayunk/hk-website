@@ -40,7 +40,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className="-m-2.5 mr-2 rounded-md p-2.5 text-gray-700"
+                className="-m-2.5 mr-2 rounded-md p-2.5 text-gray-900 font-mono"
               >
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon aria-hidden="true" className="h-6 w-6" />
@@ -92,7 +92,7 @@ export default function Header() {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 hover:bg-gray-50 flex items-center space-x-2 mobile-menu-item"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-900 hover:bg-gray-50 flex items-center space-x-2 mobile-menu-item font-mono"
                       style={{ opacity: 0 }} // Hide initially
                     >
                       <item.icon size={18} className="text-gray-900 mr-1" />

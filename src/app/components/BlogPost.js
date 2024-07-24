@@ -47,40 +47,25 @@ export default function BlogPost({ post }) {
       [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-5 mb-4">{children}</ol>,
       [BLOCKS.LIST_ITEM]: (node, children) => <li className="mb-1">{children}</li>,
       [BLOCKS.QUOTE]: (node, children) => <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4">{children}</blockquote>,
-      [INLINES.HYPERLINK]: (node, children) => <a href={node.data.uri} className="text-blue-600 hover:underline">{children}</a>,
+      [INLINES.HYPERLINK]: (node, children) => <a href={node.data.uri} className="text-black underline">{children}</a>,
     },
   };
 
   return (
     <div className="bg-orange-50 px-6 py-32 lg:px-8">
-      <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700 bg-white border-4 border-black shadow-solid-s p-6 rounded-lg">
-        <div className="flex flex-wrap space-x-2 mb-2">
+      <div className="mx-auto max-w-3xl text-base leading-7 text-gray-900 bg-white border-4 border-black shadow-solid-s p-6 rounded-lg">
+        <div className="flex flex-wrap justify-center space-x-2 mb-2">
           {post.tags.map((tag) => (
             <span key={tag} className="bg-black text-white text-xs font-semibold px-2 py-1 rounded-lg">
               {tag}
             </span>
           ))}
         </div>
-        <h1 className="mt-4 text-3xl font-bold font-mono tracking-tight text-gray-900 sm:text-4xl">{post.title}</h1>
-        <p className="mt-2 text-xl leading-8 font-mono">
-         {new Date(post.publishDate).toLocaleDateString()}
+        <h1 className="mt-4 text-3xl font-bold font-mono tracking-tight text-gray-900 sm:text-4xl text-center">{post.title}</h1>
+        <p className="mt-2 text-xl leading-8 font-mono text-center">
+          {new Date(post.publishDate).toLocaleDateString()}
         </p>
-        {post.featuredImage && (
-          <figure className="mt-16">
-            <Image
-              src={ensureAbsoluteUrl(post.featuredImage)}
-              alt={post.title}
-              width={1310}
-              height={873}
-              className="aspect-video rounded-xl bg-gray-50 object-cover"
-            />
-            <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
-              <InformationCircleIcon aria-hidden="true" className="mt-0.5 h-5 w-5 flex-none text-gray-300" />
-              {post.title}
-            </figcaption>
-          </figure>
-        )}
-        <div className="mt-10 max-w-2xl">
+        <div className="mt-10 max-w-2xl mx-auto">
           <div className="prose prose-lg prose-indigo">
             {documentToReactComponents(post.content, options)}
           </div>
