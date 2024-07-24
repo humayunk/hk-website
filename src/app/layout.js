@@ -16,8 +16,8 @@ const ibmPlexSans = IBM_Plex_Sans({
 });
 
 export const metadata = {
-  title: "Humayun Khan - Design Engineer",
-  description: "Humayun Khan is a design engineer. He specializes in product design & front-end development for startups.",
+  title: "Humayun Khan - Product Manager",
+  description: "Humayun Khan is a PM who writes, designs, and codes.",
 };
 
 export default function RootLayout({ children }) {
