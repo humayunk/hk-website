@@ -44,11 +44,6 @@ export default function BlogCards() {
       { opacity: 0, y: 50 },
       { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, scrollTrigger: { trigger: container, start: 'top 60%' } }
     );
-    gsap.fromTo(
-      container.querySelector('.view-all-link'),
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, scrollTrigger: { trigger: container, start: 'top 40%' } }
-    );
   }, []);
 
   if (error) {
@@ -56,7 +51,7 @@ export default function BlogCards() {
   }
 
   return (
-    <div className="bg-violet-100 py-24 sm:py-32" ref={containerRef}>
+    <div className="bg-orange-50 py-24 sm:py-32" ref={containerRef}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl font-mono tracking-tight">Tinkering & Thoughts</h2>
@@ -64,8 +59,8 @@ export default function BlogCards() {
             Explore my collection of guides, demonstrations, and occasional insights that emerge as I delve into the art of crafting better products.
           </p>
         </div>
-        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:mt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {posts.map((post) => (
+        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:mt-16 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+          {posts.slice(0, 2).map((post) => (
             <Link href={`/blog/${post.slug}`} key={post.slug}>
               <div className="blog-card relative flex shadow-md overflow-hidden border-4 border-black transition-shadow duration-300 ease-in-out hover:shadow-solid-s rounded-2xl" style={{ backgroundColor: '#DAC8FF' }}>
                 {post.featuredImage && (
@@ -113,7 +108,6 @@ export default function BlogCards() {
         <div className="mt-10 flex justify-center">
           <Link href="/blog" className="view-all-link px-8 py-4 text-black font-mono text-xl flex items-center" style={{ textDecoration: 'underline', textDecorationThickness: '2px', textUnderlineOffset: '4px' }}>
             View All Posts
-            {/* <ArrowRightIcon className="ml-2 h-5 w-5" /> */}
           </Link>
         </div>
       </div>

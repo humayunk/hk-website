@@ -56,7 +56,7 @@ export default function CaseStudyHeroSection({ title, description, image, video,
   const formattedImage = image && typeof image === 'string' && image.startsWith('//') ? `https:${image}` : image;
 
   return (
-    <div className="bg-white">
+    <div className="bg-orange-50">
       <div className="relative isolate pt-14">
         <div className="py-24 sm:py-32 lg:pb-40">
           <div className="mx-auto max-w-7xl">
