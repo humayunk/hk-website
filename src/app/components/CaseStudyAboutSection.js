@@ -109,7 +109,7 @@ export default function CaseStudyAboutSection({ title, slug }) {
                 <dt className="text-xl font-semibold leading-7 text-gray-900 font-mono">
                   Website
                 </dt>
-                <dd className="mt-1 text-lg leading-7 text-gray-600">
+                <dd className="mt-1 text-lg leading-7 text-gray-900">
                   <a href={projectData.url} className="text-gray-900 hover:text-violet-600 underline" target="_blank" rel="noopener noreferrer">
                     {projectData.url}
                   </a>
@@ -121,7 +121,7 @@ export default function CaseStudyAboutSection({ title, slug }) {
                 <dt className="text-xl font-semibold leading-7 text-gray-900 font-mono">
                   {feature.name}
                 </dt>
-                <dd className="mt-1 text-lg leading-7 text-gray-600">
+                <dd className="mt-1 text-lg leading-7 text-gray-900">
                   {renderFeatureContent(feature)}
                 </dd>
               </div>
@@ -133,7 +133,7 @@ export default function CaseStudyAboutSection({ title, slug }) {
                 <dt className="text-xl font-semibold leading-7 text-gray-900 font-mono pb-2">
                   {feature.name}
                 </dt>
-                <dd className="mt-1 text-lg leading-7 text-gray-600">
+                <dd className="mt-1 text-lg leading-7 text-gray-900">
                   {renderFeatureContent(feature)}
                 </dd>
               </div>

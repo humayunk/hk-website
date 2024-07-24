@@ -13,6 +13,8 @@ export default function HeroSection() {
   const svgContainerRef = useRef(null);
   const paragraphRef = useRef(null);
   const buttonRef = useRef(null);
+  const [shipVisible, setShipVisible] = useState(false);
+  const shipRef = useRef(null);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -35,67 +37,23 @@ export default function HeroSection() {
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 1, ease: 'power2.out' },
         '-=0.5'
+      )
+      .add(() => {
+        setShipVisible(true);
+      })
+      .fromTo(shipRef.current,
+        { x: '100%', opacity: 0, scale: 0.8 },
+        {
+          x: '0%',
+          opacity: 1,
+          scale: 1,
+          duration: 2,
+          ease: 'power3.out',
+          onStart: () => setShipVisible(true)
+        },
+        '-=0.5'
       );
     }
-  }, []);
-
-  useEffect(() => {
-    const elements = [
-      { id: 'astronaut' },
-    ];
-
-    const startFloating = (element) => {
-      gsap.to(element, {
-        y: '+=20',
-        duration: 1,
-        yoyo: true,
-        repeat: -1,
-        ease: "sine.inOut"
-      });
-    };
-
-    const centerElements = () => {
-      const container = svgContainerRef.current;
-      if (container) {
-        const containerRect = container.getBoundingClientRect();
-        const containerCenterX = containerRect.width / 2;
-        const containerCenterY = containerRect.height / 2;
-
-        elements.forEach(({ id }) => {
-          const element = document.getElementById(id);
-          if (element) {
-            const elementRect = element.getBoundingClientRect();
-            const elementWidth = elementRect.width;
-            const elementHeight = elementRect.height;
-
-            gsap.set(element, {
-              x: containerCenterX - elementWidth / 2,
-              y: containerCenterY - elementHeight / 2,
-            });
-
-            gsap.fromTo(element,
-              { y: -elementHeight, opacity: 0 },
-              { y: containerCenterY - elementHeight / 2, opacity: 1, duration: 2, ease: "bounce", onComplete: () => startFloating(element) }
-            );
-          }
-        });
-      }
-    };
-
-    centerElements();
-
-    const draggableElements = elements.map(e => document.getElementById(e.id)).filter(el => el !== null);
-
-    Draggable.create(draggableElements, {
-      bounds: svgContainerRef.current,
-      onDragEnd: function() {
-        startFloating(this.target);
-      },
-    });
-
-    window.addEventListener('resize', centerElements);
-
-    return () => window.removeEventListener('resize', centerElements);
   }, []);
 
   return (
@@ -104,26 +62,15 @@ export default function HeroSection() {
       <div className="relative">
         <div className="mx-auto max-w-7xl">
           <div className="relative z-10 pt-8 lg:w-full lg:max-w-2xl">
-            <svg
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-              className="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-orange-50 lg:block"
-            >
-              <polygon points="0,0 90,0 50,100 0,100" />
-            </svg>
-
-            <div className="relative px-6 py-32 sm:py-40 lg:px-8 lg:py-56 lg:pr-0">
+            <div className="relative px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-                <div className="hidden sm:mb-10 sm:flex">
-                </div>
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-7xl font-mono gsap-header">
                   {/* The text will be animated here */}
                 </h1>
-                <p ref={paragraphRef} className="mt-6 text-lg leading-8 text-gray-600 font-sans">
-                  I&apos;m a Product Manager who writes, designs, and codes.
+                <p ref={paragraphRef} className="mt-4 sm:mt-6 text-lg leading-8 text-gray-900">
+                  Hi! I&apos;m Humayun. I&apos;m a PM who writes, designs, and codes.
                 </p>
-                <div ref={buttonRef} className="mt-10 flex items-center gap-x-6">
+                <div ref={buttonRef} className="mt-6 sm:mt-10 flex items-center gap-x-6">
                   <Button />
                 </div>
               </div>
@@ -131,25 +78,24 @@ export default function HeroSection() {
           </div>
         </div>
         <div
-          className="relative overflow-hidden w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
+          className="relative overflow-hidden w-full h-[450px] sm:h-[500px] md:h-[550px] lg:h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
           ref={svgContainerRef}
         >
-          <Image
-            alt="Space Background"
-            src="/images/space-background.jpg"
-            fill
-            style={{ objectFit: 'cover' }}
-            className="aspect-[3/2] object-cover lg:aspect-auto"
-          />
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 flex items-center justify-center">
             <Image
-              id="astronaut"
-              src="/images/astronaut-2.png"
-              alt="Astronaut"
-              width={500}
-              height={500}
-              style={{ objectFit: 'contain' }}
-              className="w-48 sm:w-48 md:w-48 lg:w-72 h-auto absolute"
+              ref={shipRef}
+              id="ship"
+              src="/images/sak.png"
+              alt="Ship"
+              width={1200}
+              height={1200}
+              style={{
+                objectFit: 'contain',
+                opacity: shipVisible ? 1 : 0,
+                transition: 'opacity 0.3s ease-in-out'
+              }}
+              sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, (max-width: 1024px) 70vw, 50vw"
+              className="w-80 sm:w-96 md:w-[480px] lg:w-[576px] xl:w-[768px] 2xl:w-[960px] h-auto"
             />
           </div>
         </div>

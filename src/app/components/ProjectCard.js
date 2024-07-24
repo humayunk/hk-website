@@ -61,13 +61,13 @@ export default function ProjectCard({ title, description, cardImage, video, vide
         <div className="p-4 border-t-4 border-black bg-white">
           <div className="flex flex-wrap space-x-2 mb-2 ">
             {tags.map((tag) => (
-              <span key={tag} className="bg-black text-xs font-semibold px-2 py-1 rounded-lg">
+              <span key={tag} className="bg-black text-xs font-semibold px-2 py-1 rounded-lg font-mono">
                 {tag}
               </span>
             ))}
           </div>
-          <h3 className="text-xl font-semibold text-black">{title}</h3>
-          <p className="text-gray-600">{description}</p>
+          <h3 className="text-xl font-semibold text-black font-mono">{title}</h3>
+          <p className="text-gray-900 font-sans py-2">{description}</p>
         </div>
       </div>
     </Link>

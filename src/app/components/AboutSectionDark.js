@@ -101,13 +101,13 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-orange-50 py-24 sm:py-32">
+    <div ref={containerRef} className="bg-black py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div ref={textRef} className="mx-auto max-w-2xl lg:text-center">
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-mono">
+          <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl font-mono">
             What I Do
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-900">
+          <p className="mt-6 text-lg leading-8 text-gray-300">
             Empowering teams with a versatile expert in 0-to-1 product development, blending product management, design, and coding skills to create impactful user-centered experiences.
           </p>
         </div>
@@ -119,13 +119,13 @@ export default function AboutSection() {
                 ref={el => featureRefs.current[index] = el}
                 className="relative pl-16"
               >
-                <dt className="text-base font-semibold leading-7 text-gray-900 font-mono">
-                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center bg-black rounded-full">
-                    <feature.icon aria-hidden="true" className="h-6 w-6 text-white" />
+                <dt className="text-base font-semibold leading-7 text-white font-mono">
+                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center bg-white rounded-full">
+                    <feature.icon aria-hidden="true" className="h-6 w-6 text-black" />
                   </div>
                   {feature.name}
                 </dt>
-                <dd className="mt-2 text-base leading-7 text-gray-900">{feature.description}</dd>
+                <dd className="mt-2 text-base leading-7 text-gray-300">{feature.description}</dd>
               </div>
             ))}
           </dl>

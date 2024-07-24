@@ -62,7 +62,7 @@ export default function Example() {
           <h2 ref={headingRef} className="text-3xl font-bold tracking-tight text-black sm:text-4xl font-mono">
             Have a project? Let&apos;s talk.
           </h2>
-          <p ref={textRef} className="mx-auto my-6 max-w-xl text-lg leading-8 text-gray-600">
+          <p ref={textRef} className="mx-auto my-6 max-w-xl text-lg leading-8 text-gray-900">
              Let&apos;s see if we can build something world-class together. Or just have a really awesome conversation.
           </p>
           <div ref={buttonRef}>

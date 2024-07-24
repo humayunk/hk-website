@@ -64,12 +64,12 @@ export default function CaseStudyHeroSection({ title, description, image, video,
               <h1 ref={titleRef} className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl font-mono">
                 {title}
               </h1>
-              <p ref={descriptionRef} className="mt-6 text-lg leading-8 text-gray-600">
+              <p ref={descriptionRef} className="mt-6 text-lg leading-8 text-gray-900">
                 {description}
               </p>
               <div ref={tagsRef} className="mt-10 flex items-center justify-center gap-x-6">
                 {tags.map(tag => (
-                  <span key={tag} className="bg-black text-white px-3 py-1 rounded-lg">
+                  <span key={tag} className="bg-black text-white px-3 py-1 rounded-lg font-mono">
                     {tag}
                   </span>
                 ))}
