@@ -112,7 +112,7 @@ export default function Footer() {
           ))}
         </div>
         <p className="mt-10 text-center text-xs leading-5 text-white">
-          Made with ❤️ by Humayun Khan, Design Engineer
+          Made with ❤️ by Humayun Khan
         </p>
       </div>
     </footer>
