@@ -75,7 +75,7 @@ export default function Example() {
                   I&apos;ve been in the tech industry for over a decade but for the last ~4 years, I&apos;ve been primarily consulting and helping clients ranging from international giants like Yara International to YC-backed companies like RuthHealth design better products.
                 </p>
                 <p className="mt-8">
-                  After struggling to get my first real product off the ground and experienced first-hand friction at not being able to contribute to a code base, I finally rolled up my sleeves and decided to enroll in a nine week full-stack web development bootcamp. It wasn&apos;t easy and it felt like drinking out of a fire hydrant each day but I now have a firm grasp of how web apps and pages are built and structured end to end.
+                  After struggling to get my first real product off the ground and experiencing first-hand friction at not being able to contribute to a code base, I finally rolled up my sleeves and decided to enroll in a nine week full-stack web development bootcamp. It wasn&apos;t easy and it felt like drinking out of a fire hydrant each day but I now have a firm grasp of how web apps and pages are built and structured end to end.
                 </p>
                 <p className="mt-8">
                 As a PM who&apos;s technical and appreciates good design asthetic, I thrive on bringing product ideas to life. I&apos;m particularly energized by the evolving landscapes of EdTech, FinTech, Web3 and AI.
