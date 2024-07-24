@@ -49,7 +49,7 @@ export default function Example() {
   }, [hasAnimated]);
 
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-orange-50 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pr-4">
@@ -68,17 +68,17 @@ export default function Example() {
           <div ref={textRef}>
             <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
               <h1 className=" text-3xl font-mono font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Thanks for stopping by.
+                About Me
               </h1>
               <div className="max-w-xl">
                 <p className="mt-6">
-                  You&apos;re probably wondering, who is this guy? I thought you&apos;d never ask. I&apos;ve been in the tech industry for over a decade but for the last ~4 years, I&apos;ve been primarily consulting and helping clients ranging from international giants like Yara International to YC-backed companies like RuthHealth design better products.
+                  I&apos;ve been in the tech industry for over a decade but for the last ~4 years, I&apos;ve been primarily consulting and helping clients ranging from international giants like Yara International to YC-backed companies like RuthHealth design better products.
                 </p>
                 <p className="mt-8">
-                  After struggling to teach myself to code, a few months ago I finally rolled up my sleeves and decided to enroll in a nine week full-stack web development bootcamp. It wasn&apos;t easy and it felt like drinking out of a fire hydrant each day but I now have a firm grasp of how web apps and pages are built and structured.
+                  After struggling to get my first real product off the ground and experienced first-hand friction at not being able to contribute to a code base, I finally rolled up my sleeves and decided to enroll in a nine week full-stack web development bootcamp. It wasn&apos;t easy and it felt like drinking out of a fire hydrant each day but I now have a firm grasp of how web apps and pages are built and structured end to end.
                 </p>
                 <p className="mt-8">
-                As a hybrid Designer &amp; Front-End Developer, I thrive on bringing ideas to life in the browser. I&apos;m energized by the evolving landscape of web development and the opportunity to craft increasingly functional and engaging digital experiences.
+                As a PM who&apos;s technical and appreciates good design asthetic, I thrive on bringing product ideas to life. I&apos;m particularly energized by the evolving landscapes of EdTech, FinTech, Web3 and AI.
                 </p>
               </div>
             </div>

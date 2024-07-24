@@ -51,14 +51,14 @@ export default function WorkSection() {
   }
 
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-orange-50 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center pb-16">
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-mono">
             Selected Work
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            As a designer turned developer, here are a few personal and professional projects I can publically talk about.
+            Here are a few personal and professional projects I can publically talk about.
           </p>
         </div>
 

@@ -61,7 +61,14 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${inter.className} ${ibmPlexSans.variable} font-sans`}>
+      <body className={`${inter.className} ${ibmPlexSans.variable} font-sans bg-orange-50`}>
+        <svg width="0" height="0" style={{ position: 'absolute', visibility: 'hidden' }}>
+          <defs>
+            <pattern id="dotPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="currentColor" opacity="0.1" />
+            </pattern>
+          </defs>
+        </svg>
         {children}
       </body>
     </html>

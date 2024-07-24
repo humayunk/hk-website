@@ -1,29 +1,29 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { CursorArrowRaysIcon, CodeBracketIcon, PuzzlePieceIcon, PaintBrushIcon } from '@heroicons/react/24/outline';
+import { CursorArrowRaysIcon, CodeBracketIcon, RocketLaunchIcon, PaintBrushIcon, ChartBarIcon } from '@heroicons/react/24/outline';
 import gsap from 'gsap';
 
 const features = [
   {
-    name: 'HTML, CSS, JavaScript (ES6)',
-    description: 'Crafting elegant, accessible, and responsive web experiences using the core web technologies. From building semantic HTML structures to styling with modern CSS and bringing it all to life with ES6 JavaScript.',
+    name: '0-to-1 Product Thinking',
+    description: 'Identifying market opportunities and defining the product vision. Turning abstract ideas into concrete product strategies and roadmaps.',
+    icon: RocketLaunchIcon,
+  },
+  {
+    name: 'User-Centered Design',
+    description: 'Combining deep expertise in designing intuitive products and interfaces with rigorous user research to ensure every feature and interaction is crafted with the user in mind.',
+    icon: PaintBrushIcon,
+  },
+  {
+    name: 'Prototyping in Code',
+    description: 'Rapidly creating interactive prototypes using HTML, CSS, JavaScript, and frameworks like Next.js and React. Bringing ideas to life through functional prototypes.',
     icon: CodeBracketIcon,
   },
   {
-    name: 'Frameworks and Libraries',
-    description: 'Leveraging powerful tools like Next.js and React to build scalable web applications. Designing beautiful interfaces with TailwindCSS and adding motion magic with GSAP.',
-    icon: CursorArrowRaysIcon,
-  },
-  {
-    name: 'CMS Integration',
-    description: 'Seamlessly integrating Contentful and other CMS platforms to create dynamic, content-driven websites that are easy to manage and update.',
-    icon: PuzzlePieceIcon,
-  },
-  {
-    name: 'Creative Coding',
-    description: 'Exploring the creative side of coding with Three.js, p5.js, and Canvas to create interactive, visually stunning web experiences.',
-    icon: PaintBrushIcon,
+    name: 'Shipping & Growth',
+    description: 'Executing the launch strategy and iterating based on user feedback. Employing growth tactics and data-driven insights to scale and improve the product continuously.',
+    icon: ChartBarIcon,
   },
 ];
 
@@ -101,14 +101,14 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-white py-24 sm:py-32">
+    <div ref={containerRef} className="bg-orange-50 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div ref={textRef} className="mx-auto max-w-2xl lg:text-center">
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-mono">
             What I Do
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Supercharge your team with a versatile expert who excels at creating high-quality, user-centered experiences from concept to production.
+            Empowering teams with a versatile expert in 0-to-1 product development, blending product management, design, and coding skills to create impactful user-centered experiences.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">

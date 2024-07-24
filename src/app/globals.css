@@ -57,3 +57,57 @@ body {
   height: 100%;
   object-fit: contain; /* 'contain' ensures the entire video fits within the container */
 }
+
+pre {
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9em;
+}
+
+/* Code block styles */
+.code-block-wrapper {
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+}
+
+.hljs {
+  border-radius: 0.375rem;
+}
+
+/* Override highlight.js styles for better readability */
+.hljs {
+  color: #abb2bf;
+  background: #282c34;
+}
+
+.hljs-keyword,
+.hljs-operator {
+  color: #c678dd;
+}
+
+.hljs-function {
+  color: #61afef;
+}
+
+.hljs-string {
+  color: #98c379;
+}
+
+.hljs-number {
+  color: #d19a66;
+}
+
+.hljs-comment {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.dot-background {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cpattern id='dotPattern' x='0' y='0' width='4' height='4' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23000' opacity='0.1'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23dotPattern)'/%3E%3C/svg%3E");
+}
