@@ -26,7 +26,7 @@ export default function HeroSection() {
     if (header) {
       tl.fromTo(header,
         { text: "" },
-        { duration: 2, text: `Dream <br/> Build <br/> Ship` }
+        { duration: 2, text: `Dream <br/> Design <br/> Deploy` }
       )
       .fromTo(paragraphRef.current,
         { opacity: 0, y: 20 },
@@ -68,7 +68,7 @@ export default function HeroSection() {
                   {/* The text will be animated here */}
                 </h1>
                 <p ref={paragraphRef} className="mt-4 sm:mt-6 text-lg leading-8 text-gray-900">
-                  Hi! I&apos;m Humayun. I&apos;m a PM who writes, designs, and codes.
+                  Hi! I&apos;m Humayun. I&apos;m a Designer & Developer who loves building and shipping products.
                 </p>
                 <div ref={buttonRef} className="mt-6 sm:mt-10 flex items-center gap-x-6">
                   <Button />
