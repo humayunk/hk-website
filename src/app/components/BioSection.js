@@ -78,7 +78,7 @@ export default function Example() {
                   After struggling to reach product market fit with my first product and experiencing first-hand friction at not being able to contribute to a code base, I finally rolled up my sleeves and decided to enroll in a nine week full-stack web development bootcamp. It wasn&apos;t easy and it felt like drinking out of a fire hydrant each day but I now have a firm grasp of how web apps and pages are built and structured end to end.
                 </p>
                 <p className="mt-8">
-                As a PM who&apos;s technical and appreciates good design asthetic, I thrive on bringing product ideas to life. I&apos;m particularly energized by the evolving landscapes of EdTech, FinTech, Web3 and AI.
+                As a hybrid designer and developer, I thrive on bringing product ideas to life. I&apos;m particularly energized by the evolving landscapes of EdTech, HealthTech, FinTech, Web3 and AI.
                 </p>
               </div>
             </div>
