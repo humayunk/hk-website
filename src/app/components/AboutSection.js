@@ -113,7 +113,7 @@ export default function AboutSection({ mode = 'dark' }) {
             What I Do
           </p>
           <p className={`mt-6 text-lg leading-8 ${textColor}`}>
-            Empowering teams with a versatile expert in 0-to-1 product development, blending product management, design, and coding skills to create impactful user-centered experiences.
+           Firm believer in curiosity killing cats, not humans. I bring deep design expertise coupled with hands on PM and dev experience to the table.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">

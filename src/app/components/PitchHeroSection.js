@@ -120,7 +120,7 @@ export default function HeroSection({ data }) {
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-7xl font-mono gsap-header">
                   {/* The text will be animated here */}
                 </h1>
-                <p ref={paragraphRef} className="mt-6 text-lg leading-8 text-gray-900 font-sans">
+                <p ref={paragraphRef} className="mt-6 text-lg leading-8 text-gray-900 font-sans max-w-md">
                   I hear {data.company} might be looking for a {data.job}, we should talk.
                 </p>
                 <div ref={buttonRef} className="mt-10 flex items-center gap-x-6">
