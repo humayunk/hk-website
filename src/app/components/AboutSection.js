@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { CursorArrowRaysIcon, CodeBracketIcon, RocketLaunchIcon, PaintBrushIcon, ChartBarIcon } from '@heroicons/react/24/outline';
+import { CursorArrowRaysIcon, CodeBracketIcon, RocketLaunchIcon, PaintBrushIcon, PuzzlePieceIcon } from '@heroicons/react/24/outline';
 import gsap from 'gsap';
 
 const features = [
@@ -21,13 +21,13 @@ const features = [
     icon: CodeBracketIcon,
   },
   {
-    name: 'Shipping & Growth',
-    description: 'Executing the launch strategy and iterating based on user feedback. Employing growth tactics and data-driven insights to scale and improve the product continuously.',
-    icon: ChartBarIcon,
+    name: 'Bridging Design & Engineering',
+    description: 'Creating and implementing design systems that seamlessly connect design and engineering. Ensuring consistency, scalability, and efficiency in product development through shared language and components.',
+    icon: PuzzlePieceIcon,
   },
 ];
 
-export default function AboutSection() {
+export default function AboutSection({ mode = 'dark' }) {
   const textRef = useRef(null);
   const featureRefs = useRef([]);
   const containerRef = useRef(null);
@@ -100,14 +100,19 @@ export default function AboutSection() {
     };
   }, []);
 
+  const bgColor = mode === 'dark' ? 'bg-black' : 'bg-orange-50';
+  const textColor = mode === 'dark' ? 'text-white' : 'text-gray-900';
+  const iconBgColor = mode === 'dark' ? 'bg-white' : 'bg-black';
+  const iconColor = mode === 'dark' ? 'text-black' : 'text-white';
+
   return (
-    <div ref={containerRef} className="bg-orange-50 py-24 sm:py-32">
+    <div ref={containerRef} className={`${bgColor} py-24 sm:py-32`}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div ref={textRef} className="mx-auto max-w-2xl lg:text-center">
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-mono">
+          <p className={`mt-2 text-3xl font-bold tracking-tight ${textColor} sm:text-4xl font-mono`}>
             What I Do
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-900">
+          <p className={`mt-6 text-lg leading-8 ${textColor}`}>
             Empowering teams with a versatile expert in 0-to-1 product development, blending product management, design, and coding skills to create impactful user-centered experiences.
           </p>
         </div>
@@ -119,13 +124,13 @@ export default function AboutSection() {
                 ref={el => featureRefs.current[index] = el}
                 className="relative pl-16"
               >
-                <dt className="text-base font-semibold leading-7 text-gray-900 font-mono">
-                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center bg-black rounded-full">
-                    <feature.icon aria-hidden="true" className="h-6 w-6 text-white" />
+                <dt className={`text-base font-semibold leading-7 ${textColor} font-mono`}>
+                  <div className={`absolute left-0 top-0 flex h-10 w-10 items-center justify-center ${iconBgColor} rounded-full`}>
+                    <feature.icon aria-hidden="true" className={`h-6 w-6 ${iconColor}`} />
                   </div>
                   {feature.name}
                 </dt>
-                <dd className="mt-2 text-base leading-7 text-gray-900">{feature.description}</dd>
+                <dd className={`mt-2 text-base leading-7 ${textColor}`}>{feature.description}</dd>
               </div>
             ))}
           </dl>

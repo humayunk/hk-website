@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import HeroSectionAlt from './components/HeroSectionAlt';
 import LogoClouds from './components/LogoClouds';
-import AboutSection from './components/AboutSection';
 import WorkSection from './components/WorkSection';
 import BioSection from './components/BioSection';
 import { Suspense } from 'react';
@@ -11,7 +10,7 @@ import dynamic from 'next/dynamic';
 import Cta from './components/Cta';
 import Footer from './components/Footer';
 import { fetchEntries } from './lib/contentful';
-import AboutSectionDark from './components/AboutSectionDark';
+import AboutSection from './components/AboutSection';
 
 const BlogCards = dynamic(() => import('./components/BlogCards'), { ssr: false });
 
@@ -36,7 +35,7 @@ export default function Home() {
       <HeroSectionAlt />
       <LogoClouds />
       <WorkSection projects={projects} />
-      <AboutSectionDark />
+      <AboutSection />
       <Suspense fallback={<div>Loading blog posts...</div>}>
         <BlogCards />
       </Suspense>
