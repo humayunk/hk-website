@@ -104,14 +104,14 @@ export default function HeroSection({ data }) {
       <div className="relative">
         <div className="mx-auto max-w-7xl">
           <div className="relative z-10 pt-8 lg:w-full lg:max-w-2xl">
-            <svg
+            {/* <svg
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
               aria-hidden="true"
               className="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-orange-50 lg:block"
             >
               <polygon points="0,0 90,0 50,100 0,100" />
-            </svg>
+            </svg> */}
 
             <div className="relative px-6 py-32 sm:py-40 lg:px-8 lg:py-56 lg:pr-0">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
@@ -120,7 +120,7 @@ export default function HeroSection({ data }) {
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-7xl font-mono gsap-header">
                   {/* The text will be animated here */}
                 </h1>
-                <p ref={paragraphRef} className="mt-6 text-lg leading-8 text-gray-900 font-sans max-w-md">
+                <p ref={paragraphRef} className="mt-6 text-lg leading-8 text-gray-900 font-sans max-w-sm">
                   I hear {data.company} might be looking for a {data.job}, we should talk.
                 </p>
                 <div ref={buttonRef} className="mt-10 flex items-center gap-x-6">
@@ -131,10 +131,10 @@ export default function HeroSection({ data }) {
           </div>
         </div>
         <div
-          className="bg-orange-50 relative overflow-hidden w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
+          className="bg-orange-50 relative overflow-hidden w-full h-[300px] sm:h-[400px] md:h-[500px] md:h-[600px]  lg:h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
           ref={svgContainerRef}
         >
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 flex ">
             {data && data.logo && (
               <Image
                 id="logo"

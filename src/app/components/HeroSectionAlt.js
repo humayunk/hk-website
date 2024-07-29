@@ -67,7 +67,7 @@ export default function HeroSection() {
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-7xl font-mono gsap-header">
                   {/* The text will be animated here */}
                 </h1>
-                <p ref={paragraphRef} className="mt-4 sm:mt-6 text-lg leading-8 text-gray-900">
+                <p ref={paragraphRef} className="mt-4 sm:mt-6 text-lg leading-8 text-gray-900 max-w-sm">
                   Hi! I&apos;m Humayun. I&apos;m a Designer & Developer who loves building and shipping products.
                 </p>
                 <div ref={buttonRef} className="mt-6 sm:mt-10 flex items-center gap-x-6">
