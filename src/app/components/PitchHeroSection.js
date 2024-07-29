@@ -99,7 +99,7 @@ export default function HeroSection({ data }) {
   }, [data]);
 
   return (
-    <div className="bg-white overflow-hidden">
+    <div className="bg-orange-50 overflow-hidden">
       <Header />
       <div className="relative">
         <div className="mx-auto max-w-7xl">
@@ -108,7 +108,7 @@ export default function HeroSection({ data }) {
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
               aria-hidden="true"
-              className="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-white lg:block"
+              className="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-orange-50 lg:block"
             >
               <polygon points="0,0 90,0 50,100 0,100" />
             </svg>
@@ -131,7 +131,7 @@ export default function HeroSection({ data }) {
           </div>
         </div>
         <div
-          className="bg-violet-500 relative overflow-hidden w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
+          className="bg-orange-50 relative overflow-hidden w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
           ref={svgContainerRef}
         >
           <div className="absolute inset-0">

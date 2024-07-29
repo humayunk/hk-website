@@ -63,18 +63,20 @@ export default function BlogCards() {
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:mt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {posts.slice(0, 3).map((post) => (
             <Link href={`/blog/${post.slug}`} key={post.slug}>
-              <div className="blog-card relative flex flex-col shadow-md overflow-hidden border-4 border-black transition-shadow duration-300 ease-in-out hover:shadow-solid-s rounded-2xl" style={{ backgroundColor: '#DAC8FF' }}>
-                <div className="p-4 bg-white flex-grow">
-                  <div className="flex flex-wrap space-x-2 mb-2">
-                    {post.tags && post.tags.length > 0 && (
-                      <span className="bg-black text-white text-xs font-semibold px-2 py-1 rounded-lg">
-                        {post.tags[0]}
-                      </span>
-                    )}
+              <div className="blog-card relative flex flex-col shadow-md overflow-hidden border-4 border-black transition-shadow duration-300 ease-in-out hover:shadow-solid-s rounded-2xl h-[225px]" style={{ backgroundColor: '#DAC8FF' }}>
+                <div className="p-4 bg-white flex-grow flex flex-col justify-between h-full">
+                  <div>
+                    <div className="flex flex-wrap space-x-2 mb-2">
+                      {post.tags && post.tags.length > 0 && (
+                        <span className="bg-black text-white text-xs font-semibold px-2 py-1 rounded-lg">
+                          {post.tags[0]}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="text-xl font-semibold text-black mt-2">{post.title}</h3>
+                    <p className="text-gray-900 line-clamp-3 mt-1">{post.blurb}</p>
                   </div>
-                  <h3 className="text-xl font-semibold text-black mt-2">{post.title}</h3>
-                  <p className="text-gray-900 line-clamp-3 mt-1">{post.blurb}</p>
-                  <div className="mt-4 flex items-center gap-x-4">
+                  <div className="mt-4">
                     <div className="text-sm leading-6">
                       <p className="font-semibold text-gray-900">{post.author}</p>
                       <time dateTime={post.publishDate} className="text-gray-900">
