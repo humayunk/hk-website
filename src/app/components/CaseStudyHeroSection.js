@@ -56,20 +56,20 @@ export default function CaseStudyHeroSection({ title, description, image, video,
   const formattedImage = image && typeof image === 'string' && image.startsWith('//') ? `https:${image}` : image;
 
   return (
-    <div className="bg-orange-50">
+    <div className="bg-black">
       <div className="relative isolate pt-14">
         <div className="py-24 sm:py-32 lg:pb-40">
           <div className="mx-auto max-w-7xl">
             <div className="mx-auto max-w-2xl text-center">
-              <h1 ref={titleRef} className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl font-mono">
+              <h1 ref={titleRef} className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-mono">
                 {title}
               </h1>
-              <p ref={descriptionRef} className="mt-6 text-lg leading-8 text-gray-900">
+              <p ref={descriptionRef} className="mt-6 text-lg leading-8 text-white">
                 {description}
               </p>
               <div ref={tagsRef} className="mt-10 flex items-center justify-center gap-x-6">
                 {tags.map(tag => (
-                  <span key={tag} className="bg-black text-white px-3 py-1 rounded-lg font-mono">
+                  <span key={tag} className="bg-yellow-300 text-black px-3 py-1 rounded-lg font-mono">
                     {tag}
                   </span>
                 ))}

@@ -125,7 +125,7 @@ export default function AboutSection({ mode = 'dark' }) {
                 className="relative pl-16"
               >
                 <dt className={`text-base font-semibold leading-7 ${textColor} font-mono`}>
-                  <div className={`absolute left-0 top-0 flex h-10 w-10 items-center justify-center ${iconBgColor} rounded-full`}>
+                  <div className={`absolute left-0 top-0 flex h-10 w-10 items-center justify-center ${iconBgColor} rounded-full transition-colors duration-300 hover:bg-yellow-300`}>
                     <feature.icon aria-hidden="true" className={`h-6 w-6 ${iconColor}`} />
                   </div>
                   {feature.name}

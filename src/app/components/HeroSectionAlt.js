@@ -24,14 +24,46 @@ export default function HeroSection() {
     const tl = gsap.timeline();
 
     if (header) {
-      tl.fromTo(header,
-        { text: "" },
-        { duration: 2, text: `Dream <br/> Design <br/> Deploy` }
+      header.innerHTML = '';
+
+      const lines = ['Design', 'Develop', 'Deploy'];
+      lines.forEach((word) => {
+        const line = document.createElement('div');
+        line.className = 'header-line';
+
+        const wordSpan = document.createElement('span');
+        wordSpan.className = 'word-span';
+        wordSpan.textContent = word;
+
+        const underscore = document.createElement('span');
+        underscore.className = 'underscore';
+        underscore.textContent = '_';
+
+        line.appendChild(wordSpan);
+        line.appendChild(underscore);
+        header.appendChild(line);
+
+        line.addEventListener('mouseenter', () => {
+          gsap.to(wordSpan, { x: '0.5em', duration: 0.3 });
+          gsap.to(underscore, { opacity: 1, duration: 0.3 });
+          gsap.to(underscore, { opacity: 1, duration: 0.5, repeat: -1, yoyo: true });
+        });
+
+        line.addEventListener('mouseleave', () => {
+          gsap.killTweensOf(underscore);
+          gsap.to(wordSpan, { x: 0, duration: 0.3 });
+          gsap.to(underscore, { opacity: 0, duration: 0.3 });
+        });
+      });
+
+      tl.fromTo(header.children,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.2 }
       )
       .fromTo(paragraphRef.current,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 1, ease: 'power2.out' },
-        '+=0.5'
+        '-=0.5'
       )
       .fromTo(buttonRef.current,
         { opacity: 0, y: 20 },
@@ -57,20 +89,20 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div className="bg-orange-50 overflow-hidden">
+    <div className="bg-black overflow-hidden">
       <Header />
       <div className="relative">
         <div className="mx-auto max-w-7xl">
           <div className="relative z-10 pt-8 lg:w-full lg:max-w-2xl">
             <div className="relative px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-7xl font-mono gsap-header">
+                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-7xl font-mono gsap-header">
                   {/* The text will be animated here */}
                 </h1>
-                <p ref={paragraphRef} className="mt-4 sm:mt-6 text-lg leading-8 text-gray-900 max-w-sm">
+                <p ref={paragraphRef} className="mt-12 sm:mt-10 text-lg leading-8 text-white max-w-sm">
                   Hi! I&apos;m Humayun. I&apos;m a Designer & Developer who loves building and shipping products.
                 </p>
-                <div ref={buttonRef} className="mt-6 sm:mt-10 flex items-center gap-x-6">
+                <div ref={buttonRef} className="mt-4 sm:mt-6 flex items-center gap-x-6">
                   <Button />
                 </div>
               </div>
@@ -82,20 +114,22 @@ export default function HeroSection() {
           ref={svgContainerRef}
         >
           <div className="absolute inset-0 flex items-center justify-center">
-            <Image
+            <video
               ref={shipRef}
-              id="ship"
-              src="/images/sak.png"
-              alt="Ship"
-              width={1200}
-              height={1200}
+              id="cube-video"
+              src="/video/cube.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
               style={{
-                objectFit: 'contain',
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover', // Changed from 'contain' to 'cover' to make it bigger
                 opacity: shipVisible ? 1 : 0,
                 transition: 'opacity 0.3s ease-in-out'
               }}
-              sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, (max-width: 1024px) 70vw, 50vw"
-              className="w-80 sm:w-96 md:w-[480px] lg:w-[576px] xl:w-[768px] 2xl:w-[960px] h-auto"
+              className="w-full h-full sm:w-full md:w-full lg:w-full xl:w-full 2xl:w-full" // Adjusted to make it full width and height at all breakpoints
             />
           </div>
         </div>

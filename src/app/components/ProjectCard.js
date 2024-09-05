@@ -14,12 +14,12 @@ export default function ProjectCard({ title, description, cardImage, video, vide
   return (
     <Link href={`/projects/${slug}`}>
       <div
-        className="relative block text-white shadow-md overflow-hidden border-4 border-black transition-shadow duration-300 ease-in-out hover:shadow-solid-s rounded-2xl"
+        className="relative block text-white shadow-md overflow-hidden border-4 border-gray-900 transition-shadow duration-300 ease-in-out hover:shadow-solid-s rounded-2xl"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{ backgroundColor: '#DAC8FF' }}
       >
-        <div className="relative w-full h-0 pb-[56.25%] overflow-hidden bg-indigo-200">
+        <div className="relative w-full h-0 pb-[56.25%] overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center">
             {video ? (
               <video
@@ -58,16 +58,16 @@ export default function ProjectCard({ title, description, cardImage, video, vide
             </div>
           )}
         </div>
-        <div className="p-4 border-t-4 border-black bg-white">
+        <div className="p-4 border-t-4 border-black bg-gray-950">
           <div className="flex flex-wrap space-x-2 mb-2 ">
             {tags.map((tag) => (
-              <span key={tag} className="bg-black text-xs font-semibold px-2 py-1 rounded-lg font-mono">
+              <span key={tag} className="bg-yellow-300 text-xs text-black font-semibold px-2 py-1 rounded-lg font-mono">
                 {tag}
               </span>
             ))}
           </div>
-          <h3 className="text-xl font-semibold text-black font-mono">{title}</h3>
-          <p className="text-gray-900 font-sans py-2">{description}</p>
+          <h3 className="text-xl font-semibold text-white font-mono">{title}</h3>
+          <p className="text-white font-sans py-2">{description}</p>
         </div>
       </div>
     </Link>

@@ -11,6 +11,7 @@ import Cta from './components/Cta';
 import Footer from './components/Footer';
 import { fetchEntries } from './lib/contentful';
 import AboutSection from './components/AboutSection';
+import HeroSection from './components/HeroSection';
 
 const BlogCards = dynamic(() => import('./components/BlogCards'), { ssr: false });
 
@@ -33,7 +34,7 @@ export default function Home() {
   return (
     <>
       <HeroSectionAlt />
-      <LogoClouds />
+      {/* <LogoClouds /> */}
       <WorkSection projects={projects} />
       <AboutSection />
       <Suspense fallback={<div>Loading blog posts...</div>}>

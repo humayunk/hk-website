@@ -49,13 +49,13 @@ export default function Example() {
   }, [hasAnimated]);
 
   return (
-    <div className="bg-orange-50 py-24 sm:py-32">
+    <div className="bg-black py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pr-4">
             <div
               ref={imageRef}
-              className="relative overflow-hidden rounded-3xl bg-gray-900 px-6 pb-9 pt-[calc(100%-120px)] border-4 border-black shadow-solid-s sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10"
+              className="relative overflow-hidden rounded-3xl bg-black px-6 pb-9 pt-[calc(100%-120px)] border-4 border-black shadow-solid-s sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10"
             >
               <img
                 alt="Profile"
@@ -66,8 +66,8 @@ export default function Example() {
             </div>
           </div>
           <div ref={textRef}>
-            <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
-              <h1 className=" text-3xl font-mono font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <div className="text-base leading-7 text-white lg:max-w-lg">
+              <h1 className=" text-3xl font-mono font-bold tracking-tight text-white sm:text-4xl">
                 About Me
               </h1>
               <div className="max-w-xl">
@@ -75,7 +75,7 @@ export default function Example() {
                   I&apos;ve been in the tech industry for over a decade but for the last ~4 years, I&apos;ve been primarily consulting and helping clients ranging from international giants like Yara International to YC-backed companies like RuthHealth design better products.
                 </p>
                 <p className="mt-8">
-                  After struggling to reach product market fit with my first product and experiencing first-hand friction at not being able to contribute to a code base, I finally rolled up my sleeves and decided to enroll in a nine week full-stack web development bootcamp. It wasn&apos;t easy and it felt like drinking out of a fire hydrant each day but I now have a firm grasp of how web apps and pages are built and structured end to end.
+                  After struggling to reach product market fit with my first SaaS product and experiencing first-hand friction at not being able to contribute to a code base, I finally rolled up my sleeves and decided to enroll in a nine week full-stack web development bootcamp. It wasn&apos;t easy and it felt like drinking out of a fire hydrant each day but I now have a firm grasp of how web apps and pages are built and structured end to end.
                 </p>
                 <p className="mt-8">
                 As a hybrid designer and developer, I thrive on bringing product ideas to life. I&apos;m particularly energized by the evolving landscapes of EdTech, HealthTech, FinTech, Web3 and AI.

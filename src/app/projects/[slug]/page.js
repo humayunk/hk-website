@@ -53,9 +53,9 @@ export default async function ProjectPage({ params }) {
         title={title}
         slug={params.slug} // Pass the slug from params
       />
-      {carouselImages && carouselImages.length > 0 && (
+      {/* {carouselImages && carouselImages.length > 0 && (
         <Carousel slug={params.slug} images={carouselImages} /> // Pass the slug and images to Carousel
-      )}
+      )} */}
       <Cta />
       <Footer />
     </div>
