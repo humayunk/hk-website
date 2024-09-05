@@ -12,13 +12,14 @@ export default function Header() {
       <nav className="bg-gray-900 rounded-full px-8 py-4 shadow-lg">
         <ul className="flex items-center space-x-6">
           <li>
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8">
               <Image
                 src="/images/logomark.svg"
-                alt="Humayun Khan"
+                alt="HK"
                 width={24}
                 height={24}
-                className="h-6 w-6"
+                className="h-6 w-6 sm:h-6 sm:w-6"
+                priority
               />
             </Link>
           </li>
