@@ -52,16 +52,16 @@ export default function BlogPost({ post }) {
   };
 
   return (
-    <div className="bg-orange-50 px-6 py-32 lg:px-8">
-      <div className="mx-auto max-w-3xl text-base leading-7 text-gray-900 bg-white border-4 border-black shadow-solid-s p-6 rounded-lg">
+    <div className="bg-black px-6 py-32 lg:px-8">
+      <div className="mx-auto max-w-3xl text-base leading-7 text-white bg-gray-950 border-4 border-gray-900 shadow-solid-s p-6 rounded-lg">
         <div className="flex flex-wrap justify-center space-x-2 mb-2">
           {post.tags.map((tag) => (
-            <span key={tag} className="bg-black text-white text-xs font-semibold px-2 py-1 rounded-lg">
+            <span key={tag} className="bg-yellow-300 text-black text-xs font-semibold px-2 py-1 rounded-lg">
               {tag}
             </span>
           ))}
         </div>
-        <h1 className="mt-4 text-3xl font-bold font-mono tracking-tight text-gray-900 sm:text-4xl text-center">{post.title}</h1>
+        <h1 className="mt-4 text-3xl font-bold font-mono tracking-tight text-white sm:text-4xl text-center">{post.title}</h1>
         <p className="mt-2 text-xl leading-8 font-mono text-center">
           {new Date(post.publishDate).toLocaleDateString()}
         </p>

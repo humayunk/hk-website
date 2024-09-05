@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#ffffff" />
 
         {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="Humayun Khan - Design Engineer" />
+        <meta property="og:title" content="Humayun Khan - Product Designer" />
         <meta property="og:description" content="Product Design & Development for Startups" />
         <meta property="og:image" content="https://humayunk.com/preview-image.png" />
         <meta property="og:url" content="https://humayunk.com" />
@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Humayun Khan - Design Engineer" />
+        <meta name="twitter:title" content="Humayun Khan - Product Designer" />
         <meta name="twitter:description" content="Product Design & Development for Startups" />
         <meta name="twitter:image" content="https://humayunk.com/preview-image.png" />
 
@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${inter.className} ${ibmPlexSans.variable} font-sans bg-orange-50`}>
+      <body className={`${inter.className} ${ibmPlexSans.variable} font-sans bg-black`}>
         <svg width="0" height="0" style={{ position: 'absolute', visibility: 'hidden' }}>
           <defs>
             <pattern id="dotPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">

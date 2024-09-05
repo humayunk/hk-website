@@ -2,6 +2,9 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Image from 'next/image';
+import { Draggable } from 'gsap/Draggable';
+
+gsap.registerPlugin(Draggable);
 
 export default function LogoCloud() {
   const headingRef = useRef(null);
@@ -28,11 +31,21 @@ export default function LogoCloud() {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             tl.play();
-            observer.disconnect(); // Stop observing once animation is triggered
+            observer.disconnect();
+
+            // Make logos draggable after animation
+            logoRefs.current.forEach(logo => {
+              Draggable.create(logo, {
+                type: 'x,y',
+                edgeResistance: 0.65,
+                bounds: currentContainerRef,
+                inertia: true,
+              });
+            });
           }
         });
       },
-      { threshold: 0.5 } // Trigger when 50% of the component is in view
+      { threshold: 0.5 }
     );
 
     if (currentContainerRef) {
@@ -53,13 +66,16 @@ export default function LogoCloud() {
           You&apos;re in good company
         </h2>
         <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-3 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-          <div ref={el => logoRefs.current[0] = el}>
+          <div
+            ref={el => logoRefs.current[0] = el}
+            className="col-span-1 w-[158px] h-[48px] cursor-move"
+          >
             <Image
               alt="ClassDojo"
               src="/images/classdojo.svg"
               width={158}
               height={48}
-              className="col-span-1 max-h-8 w-full object-contain"
+              className="max-h-8 w-full object-contain"
             />
           </div>
           <div ref={el => logoRefs.current[1] = el}>

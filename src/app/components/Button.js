@@ -16,7 +16,7 @@ export default function Button() {
         onClick={openLink}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="bg-black px-8 py-4 text-white font-mono rounded-xl relative overflow-hidden"
+        className="bg-yellow-300 px-8 py-4 text-blackfont-mono rounded-xl relative overflow-hidden"
       >
         <div className={`flex items-center justify-center transition-transform duration-300 ${isHovered ? 'translate-x-full opacity-0' : ''}`}>
           <span>Book a chat</span>

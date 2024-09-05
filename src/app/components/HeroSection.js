@@ -69,13 +69,13 @@ export default function HeroSection() {
     if (header) {
       gsap.fromTo(header,
         { text: "" },
-        { duration: 2, text: `Dream <br/> Build <br/> Ship` }
+        { duration: 2, text: `Design<br/> Develop <br/> Deploy` }
       );
     }
   }, []);
 
   return (
-    <div className="bg-white overflow-hidden">
+    <div className="bg-black overflow-hidden">
       <Header />
       <div className="relative">
         <div className="mx-auto max-w-7xl">
@@ -84,7 +84,7 @@ export default function HeroSection() {
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
               aria-hidden="true"
-              className="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-white lg:block"
+              className="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-black lg:block"
             >
               <polygon points="0,0 90,0 50,100 0,100" />
             </svg>
@@ -100,11 +100,11 @@ export default function HeroSection() {
                     </a>
                   </div> */}
                 </div>
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-7xl font-mono gsap-header">
+                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-7xl font-mono gsap-header">
                   {/* The text will be animated here */}
                 </h1>
-                <p className="mt-6 text-lg leading-8 text-gray-900 font-sans">
-                  I&apos;m a Design Engineer who can help you conceptualize and ship your next critical product or growth project end-to-end.
+                <p className="mt-6 text-lg leading-8 text-white font-sans">
+                  I&apos;m a Sr. Product Designer who loves getting his hands dirty with code and shipping meaningful digital experiences.
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   <Button />

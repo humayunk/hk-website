@@ -17,10 +17,10 @@ module.exports = {
         mono: ['var(--font-ibm-plex-mono)'],
         'sans-condensed': ['var(--font-ibm-plex-sans-condensed)'],
       },
-      boxShadow: {
-        'solid-s': '6px 6px 0px black',
-        'solid-l': '10px 10px 0px black',
-      },
+      // boxShadow: {
+      //   'solid-s': '6px 6px 0px gray-900',
+      //   'solid-l': '10px 10px 0px gray-900',
+      // },
     },
   },
   plugins: [
