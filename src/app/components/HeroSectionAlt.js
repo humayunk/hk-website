@@ -100,7 +100,7 @@ export default function HeroSection() {
                   {/* The text will be animated here */}
                 </h1>
                 <p ref={paragraphRef} className="mt-12 sm:mt-10 text-lg leading-8 text-white max-w-sm">
-                  Hi! I&apos;m Humayun. I&apos;m a Designer & Developer who loves building and shipping products.
+                  Hi! I&apos;m Humayun. I&apos;m a Sr. Product Designer who loves getting his hands dirty with code and shipping impactful digital experiences.
                 </p>
                 <div ref={buttonRef} className="mt-4 sm:mt-6 flex items-center gap-x-6">
                   <Button />
