@@ -12,6 +12,15 @@ const features = [
   { name: 'Results' },
 ];
 
+const isValidUrl = (url) => {
+  try {
+    new URL(url);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
 export default function CaseStudyAboutSection({ title, slug }) {
   const [projectData, setProjectData] = useState(null);
   const titleRef = useRef(null);
@@ -110,9 +119,13 @@ export default function CaseStudyAboutSection({ title, slug }) {
                   Website
                 </dt>
                 <dd className="mt-1 text-lg leading-7 text-white">
-                  <a href={projectData.url} className="text-white hover:text-violet-600 underline" target="_blank" rel="noopener noreferrer">
-                    {projectData.url}
-                  </a>
+                  {isValidUrl(projectData.url) ? (
+                    <a href={projectData.url} className="text-white hover:text-yellow-300 underline" target="_blank" rel="noopener noreferrer">
+                      {projectData.url}
+                    </a>
+                  ) : (
+                    <span>Website URL is currently unavailable</span>
+                  )}
                 </dd>
               </div>
             )}
