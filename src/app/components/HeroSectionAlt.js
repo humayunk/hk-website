@@ -26,7 +26,7 @@ export default function HeroSection() {
     if (header) {
       header.innerHTML = '';
 
-      const lines = ['Design', 'Develop', 'Deploy'];
+      const lines = ['Designer', 'Founder', 'Author'];
       lines.forEach((word) => {
         const line = document.createElement('div');
         line.className = 'header-line';
@@ -94,17 +94,17 @@ export default function HeroSection() {
       <div className="relative">
         <div className="mx-auto max-w-7xl">
           <div className="relative z-10 pt-8 lg:w-full lg:max-w-2xl">
-            <div className="relative px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
+            <div className="relative px-6 py-8 sm:py-24 lg:px-8 lg:py-32">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-7xl font-mono gsap-header">
+                <h1 className="text-2xl font-bold tracking-tight text-white sm:text-6xl font-mono gsap-header">
                   {/* The text will be animated here */}
                 </h1>
-                <p ref={paragraphRef} className="mt-12 sm:mt-10 text-lg leading-8 text-white max-w-sm">
-                  Hi! I&apos;m Humayun. I&apos;m a Sr. Product Designer who loves getting his hands dirty with code and shipping impactful digital experiences.
+                <p ref={paragraphRef} className="mt-12 sm:mt-10 text-xl leading-8 text-white max-w-sm">
+                  Hi! I&apos;m Humayun. I&apos;m a product design consultant for startups and Fortune 500 companies, founder of <a href="https://studiomaya.io" target="_blank" rel="noopener noreferrer" className="text-link">StudioMaya</a>, a product studio, and I moonlight as a <a href="https://www.penguinrandomhouse.ca/books/669723/wrong-side-of-the-court-by-hn-khan/9780735270893" target="_blank" rel="noopener noreferrer" className="text-link">novelist</a>.
                 </p>
-                <div ref={buttonRef} className="mt-4 sm:mt-6 flex items-center gap-x-6">
+                {/* <div ref={buttonRef} className="mt-4 sm:mt-6 flex items-center gap-x-6">
                   <Button />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
