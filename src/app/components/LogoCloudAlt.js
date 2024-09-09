@@ -2,7 +2,7 @@ export default function Example() {
   return (
     <div className="bg-black py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-      <h2 className="my-2 text-3xl font-bold tracking-tight text-white sm:text-4xl font-mono text-center">Brands I've Worked With</h2>
+      <h2 className="my-2 text-3xl font-bold tracking-tight text-white sm:text-4xl font-mono text-center">Brands I&apos;ve Worked With</h2>
         <div className="-mx-6 mt-16 grid grid-cols-2 gap-0.5 overflow-hidden sm:mx-0 sm:rounded-2xl md:grid-cols-3">
           <div className="bg-gray-950 p-8 sm:p-10">
             <img
