@@ -134,3 +134,12 @@ code {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
+.text-link {
+  text-decoration: underline;
+  color: #fde047; /* This is the Tailwind yellow-300 color */
+}
+
+.text-link:hover {
+  color: #facc15; /* This is the Tailwind yellow-400 color for hover effect */
+}
