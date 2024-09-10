@@ -26,7 +26,7 @@ export default function HeroSection() {
     if (header) {
       header.innerHTML = '';
 
-      const lines = ['Designer', 'Founder', 'Author'];
+      const lines = ['Dream', 'Design', 'Develop'];
       lines.forEach((word) => {
         const line = document.createElement('div');
         line.className = 'header-line';
@@ -94,9 +94,9 @@ export default function HeroSection() {
       <div className="relative">
         <div className="mx-auto max-w-7xl">
           <div className="relative z-10 pt-8 lg:w-full lg:max-w-2xl">
-            <div className="relative px-6 py-8 sm:py-24 lg:px-8 lg:py-32">
+            <div className="relative px-6 py-8 sm:py-24 lg:px-8 lg:py-24">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-                <h1 className="text-2xl font-bold tracking-tight text-white sm:text-6xl font-mono gsap-header">
+                <h1 className="text-2xl font-bold tracking-tight text-white sm:text-7xl font-mono gsap-header">
                   {/* The text will be animated here */}
                 </h1>
                 <p ref={paragraphRef} className="mt-12 sm:mt-10 text-xl leading-8 text-white max-w-sm">
