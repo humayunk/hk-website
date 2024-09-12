@@ -10,7 +10,7 @@ export default async function BlogPage() {
       <Header />
       <BlogList posts={posts} />
     </>
-
-
   );
 }
+
+export const revalidate = 3600; // Revalidate every hour

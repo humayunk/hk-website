@@ -1,12 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BoltIcon } from '@heroicons/react/24/solid';
+import { fetchBlogPosts } from '../lib/contentful';
 
 const ensureAbsoluteUrl = (url) => {
   return url && url.startsWith('//') ? `https:${url}` : url;
 };
 
-export default function BlogList({ posts }) {
+export default async function BlogList() {
+  const fetchedPosts = await fetchBlogPosts();
+
   return (
     <div className="bg-black py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -19,7 +22,7 @@ export default function BlogList({ posts }) {
             <div className="absolute left-0 top-4 bottom-4 w-1 bg-gray-900">
               <div className="h-full border-r-2 border-dotted border-black"></div>
             </div>
-            {posts.map((post, index) => (
+            {fetchedPosts.map((post, index) => (
               <div key={post.slug} className="relative">
                 <div className="absolute left-0 top-0 transform -translate-x-1/2 w-8 h-8 bg-gray-900 rounded-full flex items-center justify-center z-10">
                   <BoltIcon className="h-4 w-4 text-yellow-300" />
@@ -64,3 +67,5 @@ export default function BlogList({ posts }) {
     </div>
   );
 }
+
+export const revalidate = 3600; // Revalidate every hour

@@ -124,6 +124,8 @@ export async function fetchBlogPosts() {
       order: '-fields.publishDate',
     });
 
+    console.log('Fetched blog posts:', entries.items);
+
     const ensureAbsoluteUrl = (url) => {
       return url && url.startsWith('//') ? `https:${url}` : url;
     };
