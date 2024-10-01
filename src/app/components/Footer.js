@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import { ArrowUpRightIcon } from '@heroicons/react/24/outline';
 
 const navigation = {
   social: [
@@ -68,11 +68,11 @@ export default function Footer() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-yellow-300 flex items-center space-x-2 transition-colors duration-300"
+                className="text-white hover:text-yellow-300 flex items-center space-x-1 transition-colors duration-300"
                 ref={el => socialLinksRef.current[index] = el}
               >
                 <span className="text-sm font-medium">{item.name}</span>
-                <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                <ArrowUpRightIcon className="h-4 w-4" />
               </a>
             ))}
           </div>
