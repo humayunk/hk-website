@@ -103,14 +103,14 @@ export default function HeroSection() {
           <div className="relative z-10 pt-8 lg:w-full lg:max-w-2xl h-full flex flex-col justify-center">
             <div className="relative px-6 lg:px-8">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-                <h1 className="text-2xl font-bold tracking-tight text-white sm:text-7xl font-mono gsap-header">
+                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl font-mono gsap-header">
                   {/* The text will be animated here */}
                 </h1>
                 {isParagraphVisible && (
                   <p ref={paragraphRef} className="mt-12 sm:mt-10 text-2xl leading-8 text-white max-w-sm space-y-4">
                     <span className="block">Hey! I&apos;m Humayun.</span>
                     <span className="block">I&apos;m a product designer with code sense who can double as a PM.</span>
-                    <span className="block">I also build my own products.</span>
+                    <span className="block">I also build <a href="https://studiomaya.io" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:underline">my own products</a>.</span>
                   </p>
                 )}
                 {/* <div ref={buttonRef} className="mt-4 sm:mt-6 flex items-center gap-x-6">
