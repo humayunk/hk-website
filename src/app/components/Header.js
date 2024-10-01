@@ -35,28 +35,16 @@ export default function Header() {
               Home
             </Link>
           </li>
-          {/* <li>
-            <Link
-              href="/work"
-              className={`transition-colors ${
-                pathname === '/work'
-                  ? 'font-bold text-white'
-                  : 'text-white/70 hover:text-yellow-400'
-              }`}
-            >
-              Work
-            </Link>
-          </li> */}
           <li>
             <Link
-              href="/blog"
+              href="/about"
               className={`transition-colors ${
-                pathname === '/blog'
+                pathname === '/about'
                   ? 'font-bold text-white'
                   : 'text-white/70 hover:text-yellow-400'
               }`}
             >
-              Blog
+              About
             </Link>
           </li>
         </ul>
