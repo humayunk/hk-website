@@ -38,9 +38,9 @@ export default function Home() {
       <LogoCloudAlt />
       <WorkSection projects={projects} />
       <AboutSection />
-      <Suspense fallback={<div>Loading blog posts...</div>}>
+      {/* <Suspense fallback={<div>Loading blog posts...</div>}>
         <BlogCards />
-      </Suspense>
+      </Suspense> */}
       <BioSection />
       <Cta />
       <Footer />
