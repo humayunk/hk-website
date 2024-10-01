@@ -13,6 +13,7 @@ import { fetchEntries } from './lib/contentful';
 import AboutSection from './components/AboutSection';
 import HeroSection from './components/HeroSection';
 import LogoCloudAlt from './components/LogoCloudAlt';
+import Testamonial from './components/Testamonial';
 
 const BlogCards = dynamic(() => import('./components/BlogCards'), { ssr: false });
 
@@ -41,7 +42,8 @@ export default function Home() {
       {/* <Suspense fallback={<div>Loading blog posts...</div>}>
         <BlogCards />
       </Suspense> */}
-      <BioSection />
+      {/* <BioSection /> */}
+      <Testamonial />
       <Cta />
       <Footer />
     </>

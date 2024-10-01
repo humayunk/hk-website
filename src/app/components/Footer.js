@@ -6,7 +6,7 @@ import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 const navigation = {
   social: [
     { name: 'Email', href: 'mailto:humayun.n.k@gmail.com' },
-    { name: 'Twitter', href: 'https://x.com/humayunk_' },
+    { name: 'X', href: 'https://x.com/humayunk_' },
     { name: 'GitHub', href: 'https://github.com/humayunk' },
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/khanhumayun/' },
   ],
