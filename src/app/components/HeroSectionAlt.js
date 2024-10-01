@@ -107,7 +107,7 @@ export default function HeroSection() {
                   {/* The text will be animated here */}
                 </h1>
                 {isParagraphVisible && (
-                  <p ref={paragraphRef} className="mt-12 sm:mt-10 text-2xl leading-8 text-white max-w-sm space-y-4">
+                  <p ref={paragraphRef} className="mt-12 sm:mt-10 text-lg sm:text-2xl leading-7 sm:leading-8 text-white max-w-sm space-y-4">
                     <span className="block">Hey! I&apos;m Humayun.</span>
                     <span className="block">I&apos;m a product designer with code sense who can double as a PM.</span>
                     <span className="block">I also build <a href="https://studiomaya.io" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:underline">my own products</a>.</span>
