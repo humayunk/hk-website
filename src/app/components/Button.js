@@ -7,7 +7,7 @@ export default function Button() {
   const [isHovered, setIsHovered] = useState(false);
 
   const openLink = () => {
-    window.open('https://savvycal.com/khanhumayun/lets-connect', '_blank');
+    window.open('https://cal.com/humayunk/30min', '_blank');
   };
 
   return (

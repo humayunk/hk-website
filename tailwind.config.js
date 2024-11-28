@@ -13,9 +13,8 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        sans: ['var(--font-ibm-plex-sans)'],
-        mono: ['var(--font-ibm-plex-mono)'],
-        'sans-condensed': ['var(--font-ibm-plex-sans-condensed)'],
+        sans: ['var(--font-ibm-plex-sans)', 'sans-serif'],
+        mono: ['var(--font-ibm-plex-mono)', 'monospace'],
       },
       // boxShadow: {
       //   'solid-s': '6px 6px 0px gray-900',

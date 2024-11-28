@@ -1,18 +1,23 @@
 import { Inter, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: 'swap',
+});
 
 const ibmPlexMono = IBM_Plex_Mono({
   weight: ['400', '500', '700'],
   subsets: ['latin'],
   variable: '--font-ibm-plex-mono',
+  display: 'swap',
 });
 
 const ibmPlexSans = IBM_Plex_Sans({
   weight: ['400', '500', '700'],
   subsets: ['latin'],
   variable: '--font-ibm-plex-sans',
+  display: 'swap',
 });
 
 export const metadata = {
@@ -61,7 +66,7 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${inter.className} ${ibmPlexSans.variable} font-sans bg-black`}>
+      <body className={`${inter.className} ${ibmPlexMono.variable} ${ibmPlexSans.variable} font-sans bg-black`}>
         <svg width="0" height="0" style={{ position: 'absolute', visibility: 'hidden' }}>
           <defs>
             <pattern id="dotPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">

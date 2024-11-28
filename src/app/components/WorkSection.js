@@ -73,6 +73,7 @@ export default function WorkSection() {
               image={project.image ? project.image.fields.file.url : null}
               tags={project.tags || []}
               slug={project.slug}
+              url={project.url}
             />
           ))}
         </div>

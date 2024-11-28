@@ -7,6 +7,7 @@ const nextConfig = {
   images: {
     domains: ['images.ctfassets.net'],
   },
+  optimizeFonts: true,
 };
 
 export default nextConfig;

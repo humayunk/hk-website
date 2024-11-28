@@ -3,6 +3,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { fetchProjectData } from '../lib/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   { name: 'Overview' },
@@ -41,7 +44,14 @@ export default function CaseStudyAboutSection({ title, slug }) {
   useEffect(() => {
     if (!projectData) return;
 
-    const tl = gsap.timeline({ paused: true });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 70%", // Starts animation when top of container hits 70% of viewport
+        end: "bottom 20%",
+        toggleActions: "play none none reverse"
+      }
+    });
 
     tl.fromTo(titleRef.current,
       { y: -50, opacity: 0 },
@@ -58,7 +68,10 @@ export default function CaseStudyAboutSection({ title, slug }) {
       '-=1'
     );
 
-    tl.play(); // Play the animation directly
+    return () => {
+      // Cleanup ScrollTrigger instances when component unmounts
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
 
   }, [projectData]);
 

@@ -108,9 +108,9 @@ export default function HeroSection() {
                 </h1>
                 {isParagraphVisible && (
                   <p ref={paragraphRef} className="mt-12 sm:mt-10 text-lg sm:text-2xl leading-7 sm:leading-8 text-white max-w-sm space-y-4">
-                    <span className="block">Hey! I&apos;m Humayun.</span>
-                    <span className="block">I&apos;m a product designer with code sense who can double as a PM.</span>
-                    <span className="block">I also build <a href="https://studiomaya.io" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:underline">my own products</a>.</span>
+                    <span className="block">Hey! I&apos;m Humayun. I&apos;m a product designer who codes and builds his own products.</span>
+
+
                   </p>
                 )}
                 {/* <div ref={buttonRef} className="mt-4 sm:mt-6 flex items-center gap-x-6">
