@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -54,7 +55,7 @@ export default function Example() {
             <figure className="mt-10 flex flex-auto flex-col justify-between">
               <blockquote className="text-lg leading-8 text-white">
                 <p>
-                  "Humayun took our MVP functionality and updated brand guidelines to create a design system and product experience we could be proud of from the ground up while keeping both the new and aspiring mothers we work with firmly in mind. And that too at a rapid clip as he iterated through the various design stages while incorporating stakeholder feedback. He'd be a valuable addition to any early-stage start-up."
+                  "Humayun took our MVP functionality and updated brand guidelines to create a design system and product experience we could be proud of from the ground up while keeping both the new and aspiring mothers we work with firmly in mind. And that too at a rapid clip as he iterated through the various design stages while incorporating stakeholder feedback. He&apos;d be a valuable addition to any early-stage start-up."
                 </p>
               </blockquote>
               <figcaption className="mt-10 flex items-center gap-x-6">
@@ -78,7 +79,7 @@ export default function Example() {
             <figure className="mt-10 flex flex-auto flex-col justify-between">
               <blockquote className="text-lg leading-8 text-white">
                 <p>
-                "Humayun's design expertise has been invaluable in improving the Ambry Care Platform for Oncology and COVID-19. He worked closely with all the stakeholders to ensure that the patient, provider, and reporting platforms are user-friendly and meets the business objectives in a short amount of time."
+                "Humayun&apos;s design expertise has been invaluable in improving the Ambry Care Platform for Oncology and COVID-19. He worked closely with all the stakeholders to ensure that the patient, provider, and reporting platforms are user-friendly and meets the business objectives in a short amount of time."
                 </p>
               </blockquote>
               <figcaption className="mt-10 flex items-center gap-x-6">
