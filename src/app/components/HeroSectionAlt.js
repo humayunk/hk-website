@@ -27,7 +27,7 @@ export default function HeroSection() {
     if (header) {
       header.innerHTML = '';
 
-      const lines = ['Studio', 'Maya'];
+      const lines = ['Product', 'Design', '& Code'];
       lines.forEach((word) => {
         const line = document.createElement('div');
         line.className = 'header-line';
@@ -108,7 +108,7 @@ export default function HeroSection() {
                 </h1>
                 {isParagraphVisible && (
                   <p ref={paragraphRef} className="mt-12 sm:mt-10 text-lg sm:text-2xl leading-7 sm:leading-8 text-white max-w-sm space-y-4">
-                    <span className="block">We are a product studio that uses humans to design and AI to build rapid prototypes and fully-functioning apps.</span>
+                    <span className="block">Hey! I&apos;m Humayun. I&apos;m a product designer who codes and builds his own products.</span>
 
 
                   </p>

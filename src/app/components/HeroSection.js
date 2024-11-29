@@ -104,7 +104,7 @@ export default function HeroSection() {
                   {/* The text will be animated here */}
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-white font-sans">
-                  We design digital products and websites and use AI to build rapid prototypes and fully-functioning apps.
+                  I&apos;m a Sr. Product Designer who loves getting his hands dirty with code and shipping meaningful digital experiences.
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   <Button />
