@@ -58,7 +58,7 @@ export default function WorkSection() {
             Selected Work
           </p>
           <p className="mt-6 text-lg leading-8 text-white">
-            Here are a few personal and professional projects I can publically talk about.
+            Here are some of our own apps and client projects we can talk about.
           </p>
         </div>
 

@@ -80,7 +80,7 @@ export default function LogoCloudAlt() {
     <div ref={containerRef} className="bg-black py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <h2 ref={headingRef} className="my-2 text-3xl font-bold tracking-tight text-white sm:text-4xl font-mono text-center">
-          Brands I&apos;ve Worked With
+          Brands We&apos;ve Worked With
         </h2>
         <div className="-mx-6 mt-16 grid grid-cols-2 gap-0.5 overflow-hidden sm:mx-0 sm:rounded-2xl md:grid-cols-3">
           {[

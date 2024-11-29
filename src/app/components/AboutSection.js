@@ -110,10 +110,10 @@ export default function AboutSection({ mode = 'dark' }) {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div ref={textRef} className="mx-auto max-w-2xl lg:text-center">
           <p className={`mt-2 text-3xl font-bold tracking-tight ${textColor} sm:text-4xl font-mono`}>
-            What I Do
+            What We Do
           </p>
           <p className={`mt-6 text-lg leading-8 ${textColor}`}>
-           Firm believer in curiosity killing cats, not humans. I bring deep design expertise coupled with hands on PM and dev experience to the table.
+          We are firm believers in curiosity killing cats, not humans. We work with founders as founders to build delightful digital products.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
